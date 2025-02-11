@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charity - TUCMUN I</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Elbasan&display=swap" rel="stylesheet">
+    <style>
+        /* Main Style Variables */
+        :root {
+            --primary-bg: #0f172a;
+            --secondary-bg: #1e3a8a;
+            --accent-color: #D97706;
+            --text-color: #f8fafc;
+            --light-bg: rgba(41, 54, 84, 0.8);
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Reset and Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html {
+            font-family: "Judson", serif;
+            background: linear-gradient(to bottom, #0a1832, #1e3a8a, #2563eb);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            flex: 1;
+        }
+
+        /* Header Styles (unchanged) */
+        header {
+            background-color: rgba(41, 54, 84, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50px;
+            width: fit-content;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .menu-item {
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(30,58,138,0.95);
+            min-width: 200px;
+            border-radius: 5px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .dropdown li {
+            padding: 10px 15px;
+            white-space: nowrap;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown li a {
+            color: #f1f5f9;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .dropdown li:hover {
+            background-color: #334155;
+        }
+        ul li:hover .dropdown {
+            display:block;
+        }
+
+        /* Hero Section with FeedMore Logo */
+        /* Hero Section with FeedMore Logo */
+.hero {
+    height: 60vh; /* Adjusted height for the hero section */
+    padding-top: 120px; /* Adjusted padding to accommodate the header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+.logo-container {
+    background-color: white; /* White box behind the logo */
+    padding: 20px; /* Padding around the logo */
+    border-radius: 10px; /* Rounded corners for the white box */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Shadow for the white box */
+    margin-bottom: 1.5rem; /* Space between the logo and the text */
+    z-index: 1; /* Ensure the logo is above the text background */
+}
+
+.hero-text {
+    background: rgba(41, 54, 84, 0.8); /* Semi-transparent background for text */
+    backdrop-filter: blur(5px); /* Soft blur effect for text background */
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hero img {
+    max-width: 300px; /* Adjust the size of the logo */
+    height: auto;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.hero-text p {
+    font-size: 1.25rem;
+    color: var(--text-color);
+}
+.hero img {
+    max-width: 1000px; /* Increase this value to make the logo bigger */
+    height: auto; /* Maintains the aspect ratio */
+}
+
+        /* Main Content Styles */
+        .main-content {
+            margin-top: 100px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        /* Footer Styles (unchanged) */
+        footer {
+            background-color: var(--primary-bg);
+            text-align: center;
+            padding: 2rem 0;
+            border-radius: 20px 20px 0 0;
+            margin-top: 3rem;
+            color: var(--text-color);
+        }
+        footer h2 {
+            font-size: 6rem;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        .header-tucmun-color {
+            color: #3b82f6;
+            text-decoration: none;
+            padding-right: 60px;
+        }
+
+        .charity-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            background-color: var(--light-bg);
+        }
+
+        .charity-section h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .charity-section p, .charity-section ul {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .charity-section ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+        }
+
+        .donate-button {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--text-color);
+            background-color: var(--accent-color);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .donate-button:hover {
+            background-color: #2563eb;
+        }
+
+        .team-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            text-align: left;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member p {
+            font-size: 1rem;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="home.html" class="header-tucmun-color">TUCMUN</a>
+                </div>
+                <ul>
+                    <li class="menu-item">
+                        <a href="about.html">About</a>
+                        <ul class="dropdown">
+                            <li><a href="secretariat.html">Secretariat</a></li>
+                        </ul>
+                    </li>
+                    <!-- Conference Dropdown -->
+                    <li class="menu-item">
+                        <a href="sec-gen.html">Conference</a>
+                        <ul class="dropdown">
+                            <li><a href="sec-gen.html">Welcome Letter</a></li>
+                            <li><a href="policies.html">Policies</a></li>
+                            <li><a href="schedule.html">Schedule</a></li>
+                            <li><a href="delegate-handbook.html">Delegate Handbook</a></li>
+                            <li><a href="sponsor-handbook.html">Sponsor Handbook</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Committees Dropdown -->
+                    <li class="menu-item">
+                        <a href="ga.html">Committees</a>
+                        <ul class="dropdown">
+                            <li><a href="ga.html">GA</a></li>
+                            <li><a href="sa.html">SA</a></li>
+                            <li><a href="crisis.html">Crisis Simulations</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Charity Dropdown -->
+                    <li class="menu-item">
+                        <a href="charity-letter.html">Charity</a>
+                        <ul class="dropdown">
+                            <li><a href="charity-letter.html">Charity Letter</a></li>
+                            <li><a href="charity-info.html">Charity Info (FEEDMORE)</a></li>
+                            <li><a href="charity-speaker.html">Charity Speaker - Info & Pic</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Keynote Speaker -->
+                    <li class="menu-item">
+                        <a href="keynote.html">Keynote</a>
+                    </li>
+    
+                    <!-- Registration Dropdown -->
+                    <li class="menu-item">
+                        <a href="registration.html">Registration</a>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with FeedMore Logo -->
+<section class="hero">
+    <div class="logo-container">
+        <img src="feedmore-logo.png" alt="FeedMore Logo">
+    </section>
+    <section class="container main-content">
+        <div class="container">
+            <h1>Partnering with FeedMore</h1>
+            <p>Join us in supporting FeedMore's mission to fight hunger in Central Virginia.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="container main-content">
+        <div class="charity-section">
+            <h2>About FeedMore</h2>
+            <p>FeedMore is dedicated to providing hunger relief throughout Central Virginia. Since its humble beginnings in 1967 with the launch of Meals on Wheels serving just eight clients, FeedMore has grown into a comprehensive hunger relief organization. In 1980, the Central Virginia Food Bank was established by 60 local churches and charities to address growing hunger and poverty. In 2005, the two organizations merged to create a Community Kitchen and formalized as FeedMore in 2008. Today, FeedMore serves 34 cities and counties, delivering over 35 million pounds of nutritious food annually to neighbors in need. With over 100 employees and more than 200 volunteers, FeedMore is proud to be a member of Feeding America, Meals on Wheels America, and the Federation of Virginia Food Banks.</p>
+        </div>
+
+        <div class="charity-section">
+            <h2>Our Mission</h2>
+            <p>FeedMore’s mission is to provide hunger relief to neighbors in need through a network of community partners and programs. By addressing food insecurity, FeedMore aims to improve the health and well-being of individuals and families across Central Virginia.</p>
+        </div>
+
+        <div class="charity-section">
+            <h2>Programs</h2>
+            <ul>
+                <li><strong>BackPack Program:</strong> Provides weekend meals to children who rely on school meals during the week.</li>
+                <li><strong>Mobile Pantry:</strong> Brings groceries directly to underserved neighborhoods, ensuring access to fresh and nutritious food.</li>
+                <li><strong>Meals on Wheels:</strong> Delivers nutritious meals to homebound seniors, helping them maintain their independence and health.</li>
+            </ul>
+        </div>
+
+        <div class="charity-section">
+            <h2>Support FeedMore</h2>
+            <p>Your donations can make a significant difference in the fight against hunger. Every dollar donated helps provide meals to those in need. Join us in our mission to end hunger in Central Virginia.</p>
+            <a href="https://feedmore.org/donate/" target="_blank" class="donate-button">Donate Now</a>
+        </div>
+
+        <div class="charity-section">
+            <h2>Our Team</h2>
+            <div class="team-section">
+                <div class="team-member">
+                    <h3>Doug Pick</h3>
+                    <p><strong>President & CEO</strong><br>Leads with experience from his previous roles at Capital One and IBM.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Tammy Cummings</h3>
+                    <p><strong>Chief Administrative Officer</strong><br>Over 30 years of experience in HR and DEI, leading strategic change.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Sarah Gravitt-Baese</h3>
+                    <p><strong>Chief Marketing Officer</strong><br>Brings 20+ years of expertise in brand strategy and marketing.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Michael Kenny</h3>
+                    <p><strong>Chief Operations Officer</strong><br>Focused on optimizing Feed More’s supply chain and operational efficiency.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Kim Kugelman</h3>
+                    <p><strong>Chief Financial Officer</strong><br>A CPA with 25+ years in finance, ensuring financial sustainability.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Aaron McClung</h3>
+                    <p><strong>Chief Development Officer</strong><br>Leads philanthropic efforts with a strong background in charitable giving.</p>
+                </div>
+                <div class="team-member">
+                    <h3>David Waidelich</h3>
+                    <p><strong>Chief Collaboration and Programs Officer</strong><br>A seasoned leader passionate about community outreach and strategic partnerships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h2>TUCMUN</h2>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/tucmun?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="mailto:tucmunregistration@gmail.com" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

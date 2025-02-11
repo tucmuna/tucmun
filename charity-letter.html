@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - TUCMUN I</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Elbasan&display=swap" rel="stylesheet">
+    <style>
+        /* Main Style Variables */
+        :root {
+            --primary-bg: #0f172a;
+            --secondary-bg: #1e3a8a;
+            --accent-color: #3b82f6;
+            --text-color: #f8fafc;
+            --light-bg: rgba(41, 54, 84, 0.8);
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Reset and Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html {
+            font-family: "Judson", serif;
+            background: linear-gradient(to bottom, #0a1832, #1e3a8a, #2563eb);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            flex: 1;
+        }
+
+        /* Header Styles (unchanged) */
+        header {
+    background-color: rgba(41, 54, 84, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 2.5rem; /* Increased padding for a larger header */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    width: fit-content;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem; /* Increased font size for the logo */
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 2.5rem; /* Increased gap between menu items */
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem; /* Slightly larger font size for menu items */
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--orange-accent); /* Changed hover color to orange */
+}
+.menu-item {
+    position: relative;
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(30,58,138,0.95);
+    min-width: 200px;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.dropdown li {
+    padding: 10px 15px;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown li a {
+    color: #f1f5f9;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.dropdown li:hover {
+    background-color: #334155;
+}
+
+/* Show Dropdown on Hover */
+ul li:hover .dropdown {
+    display: block;
+}
+
+        .hero {
+    height: 100vh;
+    padding-top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-top: 80px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: rgba(41, 54, 84, 0.8); /* Background for the content box */
+    backdrop-filter: blur(5px); /* Softens the overlay */
+}
+
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--orange-text);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--orange-text);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Show Dropdown on Hover */
+        ul li:hover .dropdown {
+            display: block;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            margin-top: 100px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+                /* Footer Styles (unchanged) */
+                footer {
+            background-color: var(--primary-bg);
+            text-align: center;
+            padding: 2rem 0;
+            border-radius: 20px 20px 0 0;
+            margin-top: 3rem;
+            color: var(--text-color);
+        }
+    
+        footer h2 {
+            font-size: 6rem;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        .header-tucmun-color {
+            color: #3b82f6;
+            text-decoration: none;
+            padding-right: 60px;
+        }
+        .charity-letter {
+    padding: 6rem 0; /* Increased padding to move it down */
+    text-align: center;
+    color: var(--text-color);
+}
+
+.letter-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.letter-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ff6a00;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.letter-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    color: #e0e7ff;
+}
+
+.letter-content p:last-child {
+    font-style: italic;
+    color: #cbd5e1;
+}
+
+.letter-content strong {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .main-content, footer {
+    position: relative;
+    z-index: 10; /* Ensures they stay above the canvas */
+    header {
+        z-index: 11;
+    }
+}
+    </style>
+</head>
+<!--Header Code-->
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="home.html" class="header-tucmun-color">TUCMUN</a>
+                </div>
+                <ul>
+                    <li class="menu-item">
+                        <a href="about.html">About</a>
+                        <ul class="dropdown">
+                            <li><a href="secretariat.html">Secretariat</a></li>
+                        </ul>
+                    </li>
+                    <!-- Conference Dropdown -->
+                    <li class="menu-item">
+                        <a href="sec-gen.html">Conference</a>
+                        <ul class="dropdown">
+                            <li><a href="sec-gen.html">Welcome Letter</a></li>
+                            <li><a href="policies.html">Policies</a></li>
+                            <li><a href="schedule.html">Schedule</a></li>
+                            <li><a href="delegate-handbook.html">Delegate Handbook</a></li>
+                            <li><a href="sponsor-handbook.html">Sponsor Handbook</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Committees Dropdown -->
+                    <li class="menu-item">
+                        <a href="ga.html">Committees</a>
+                        <ul class="dropdown">
+                            <li><a href="ga.html">GA</a></li>
+                            <li><a href="sa.html">SA</a></li>
+                            <li><a href="crisis.html">Crisis Simulations</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Charity Dropdown -->
+                    <li class="menu-item">
+                        <a href="charity-letter.html">Charity</a>
+                        <ul class="dropdown">
+                            <li><a href="charity-letter.html">Charity Letter</a></li>
+                            <li><a href="charity-info.html">Charity Info (FEEDMORE)</a></li>
+                            <li><a href="charity-speaker.html">Charity Speaker - Info & Pic</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Keynote Speaker -->
+                    <li class="menu-item">
+                        <a href="keynote.html">Keynote</a>
+                    </li>
+    
+                    <!-- Registration Dropdown -->
+                    <li class="menu-item">
+                        <a href="registration.html">Registration</a>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="charity-letter">
+        <div class="container">
+            <div class="letter-content">
+                <h2>Charity Letter</h2>
+                <p>
+                    Dear Delegates, Sponsors, and Guests of TUCMUN,<br><br>
+                    At TUCMUN, we strive to inspire future leaders who will create meaningful change both globally and locally. As your Director of Charitable Giving, I am excited to introduce Feed More as the official charity for this year’s TUCMUN conference.
+                    <br><br>
+                    Feed More is an organization that has been fighting hunger and providing nourishment to those in need across Central Virginia for over five decades. By collecting, preparing, and distributing food, Feed More serves more than 165,000 individuals across 29 counties and 5 cities, providing over 35 million pounds of food annually. Their mission goes beyond just feeding people. They are dedicated to providing hope and restoring dignity to those who are struggling with food insecurity.
+                    <br><br>
+                    In our own community, 1 in 6 children face hunger, and 70% of clients rely on Feed More’s services just 8 times or fewer a year, showing how food insecurity can affect anyone, often unexpectedly. With over 250 community partners, including food pantries, soup kitchens, and group homes, Feed More reaches out to the most vulnerable in our region, providing critical support through their network.
+                    <br><br>
+                    As a school, TUCMUN has always been committed to giving back, and this year we have the opportunity to make a real difference in the lives of our neighbors. Our goal is to raise awareness about Feedmore and funds to the best of our ability throughout our preparation of the conference. Any donations we are able to make will directly support their hunger relief programs, allowing them to provide even more nutritious food to those who need it most. 
+                    <br><br>
+                    To make this possible, we need your support. I am excited to see all delegates contribute to our cause this year during our conference days and help our community in need. 
+                </p>
+                <p>Thank you for your support,<br></p>
+                <p>Himasri Dasari<br></p>
+                <p>Director of Charitable Giving<br></p>
+                <p>TUCMUN I</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const letterContent = document.querySelector(".letter-content");
+    
+            // Set initial style for the animation
+            letterContent.style.opacity = "0";
+            letterContent.style.transform = "translateY(50px)";
+            letterContent.style.transition = "opacity 1s ease, transform 1s ease";
+    
+            // Create an Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        letterContent.style.opacity = "1";
+                        letterContent.style.transform = "translateY(0)";
+                    }
+                });
+            });
+    
+            // Observe the letter-content element
+            observer.observe(letterContent);
+        });
+    </script>
+<!--Footer Code-->
+<footer>
+    <div class="container">
+        <h2>TUCMUN</h2>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/tucmun?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="mailto:tucmunregistration@gmail.com" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+        </div>
+    </div>
+</footer>
+
+</script>
+</body>
+</html>
