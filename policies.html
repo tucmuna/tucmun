@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - TUCMUN I</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Elbasan&display=swap" rel="stylesheet">
+    <style>
+        /* Main Style Variables */
+        :root {
+            --primary-bg: #0f172a;
+            --secondary-bg: #1e3a8a;
+            --accent-color: #3b82f6;
+            --text-color: #f8fafc;
+            --light-bg: rgba(41, 54, 84, 0.8);
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Reset and Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html {
+            font-family: "Judson", serif;
+            background: linear-gradient(to bottom, #0a1832, #1e3a8a, #2563eb);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            flex: 1;
+        }
+
+        /* Header Styles (unchanged) */
+        header {
+    background-color: rgba(41, 54, 84, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 2.5rem; /* Increased padding for a larger header */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    width: fit-content;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem; /* Increased font size for the logo */
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 2.5rem; /* Increased gap between menu items */
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem; /* Slightly larger font size for menu items */
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--orange-accent); /* Changed hover color to orange */
+}
+.menu-item {
+    position: relative;
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(30,58,138,0.95);
+    min-width: 200px;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.dropdown li {
+    padding: 10px 15px;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown li a {
+    color: #f1f5f9;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.dropdown li:hover {
+    background-color: #334155;
+}
+
+/* Show Dropdown on Hover */
+ul li:hover .dropdown {
+    display: block;
+}
+
+        .hero {
+    height: 100vh;
+    padding-top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-top: 80px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: rgba(41, 54, 84, 0.8); /* Background for the content box */
+    backdrop-filter: blur(5px); /* Softens the overlay */
+}
+
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--orange-text);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--orange-text);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Show Dropdown on Hover */
+        ul li:hover .dropdown {
+            display: block;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            margin-top: 100px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+                /* Footer Styles (unchanged) */
+                footer {
+            background-color: var(--primary-bg);
+            text-align: center;
+            padding: 2rem 0;
+            border-radius: 20px 20px 0 0;
+            margin-top: 3rem;
+            color: var(--text-color);
+        }
+    
+        footer h2 {
+            font-size: 6rem;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        .header-tucmun-color {
+            color: #3b82f6;
+            text-decoration: none;
+            padding-right: 60px;
+        }
+        .charity-letter {
+    padding: 6rem 0; /* Increased padding to move it down */
+    text-align: center;
+    color: var(--text-color);
+}
+
+.letter-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.letter-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ff6a00;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.letter-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #ff6a00;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.letter-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    color: #e0e7ff;
+}
+
+.letter-content p:last-child {
+    font-style: italic;
+    color: #cbd5e1;
+}
+
+.letter-content strong {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .main-content, footer {
+    position: relative;
+    z-index: 10; /* Ensures they stay above the canvas */
+    header {
+        z-index: 11;
+    }
+}
+    </style>
+</head>
+<!--Header Code-->
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="home.html" class="header-tucmun-color">TUCMUN</a>
+                </div>
+                <ul>
+                    <li class="menu-item">
+                        <a href="about.html">About</a>
+                        <ul class="dropdown">
+                            <li><a href="secretariat.html">Secretariat</a></li>
+                        </ul>
+                    </li>
+                    <!-- Conference Dropdown -->
+                    <li class="menu-item">
+                        <a href="sec-gen.html">Conference</a>
+                        <ul class="dropdown">
+                            <li><a href="sec-gen.html">Welcome Letter</a></li>
+                            <li><a href="policies.html">Policies</a></li>
+                            <li><a href="schedule.html">Schedule</a></li>
+                            <li><a href="delegate-handbook.html">Delegate Handbook</a></li>
+                            <li><a href="sponsor-handbook.html">Sponsor Handbook</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Committees Dropdown -->
+                    <li class="menu-item">
+                        <a href="ga.html">Committees</a>
+                        <ul class="dropdown">
+                            <li><a href="ga.html">GA</a></li>
+                            <li><a href="sa.html">SA</a></li>
+                            <li><a href="crisis.html">Crisis Simulations</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Charity Dropdown -->
+                    <li class="menu-item">
+                        <a href="charity-letter.html">Charity</a>
+                        <ul class="dropdown">
+                            <li><a href="charity-letter.html">Charity Letter</a></li>
+                            <li><a href="charity-info.html">Charity Info (FEEDMORE)</a></li>
+                            <li><a href="charity-speaker.html">Charity Speaker - Info & Pic</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Keynote Speaker -->
+                    <li class="menu-item">
+                        <a href="keynote.html">Keynote</a>
+                    </li>
+    
+                    <!-- Registration Dropdown -->
+                    <li class="menu-item">
+                        <a href="registration.html">Registration</a>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="charity-letter">
+        <div class="container">
+            <div class="letter-content">
+                <h2>TUCMUN I Policies</h2>
+                <p>
+                    From the start, TUCMUN aimed to be an educational organization dedicated to nurturing global leaders by strengthening delegates' research, writing, and public speaking skills with intriguing and relevant topics. We acknowledge the subjectivity that can often influence delegate award decisions in the Model UN community, including the potential for chair bias and preconceived judgments. Our goal is to foster an inclusive and welcoming conference environment that emphasizes genuine diplomacy, collaboration, and coalition-building—values that are often overlooked in competitive committee settings.
+<br><br>
+To accomplish our goal, the TUCMUN team developed specific rubrics to grade delegates as well as their position papers based on their committee. This score-based approach is designed to provide committee chairs with a fair and transparent framework for awards as we promote greater equity and accountability while reducing bias between each committee.
+                    <br><br>
+                </p>
+                <h3>Delegate Performance</h3>
+                <p>
+                    Delegates across all four committee sections will be assessed based on both their in-room performance and out-of-committee research using a standardized rubric. They will receive scores across five categories, with the completed rubric returned to them by the chairs at the end of the conference. Throughout the 2 day span of TUCMUN, delegates will be evaluated based on their performance inside the committee as well as the research done prior to it using a standardized rubric created based on the committee. The evaluation criteria, each assigned a specific weight, include:
+<br><br>
+In-Room Debate (Moderated and Unmoderated Caucuses) <br><br>
+Resolutions <br><br>
+Position Paper<br><br>
+Diplomacy and Collaboration <br><br>
+Note that the weight of each section will change in between each Assembly.
+
+                </p>
+<h3>Position Paper</h3>
+<p>
+    To be eligible for awards, delegates must submit a position paper by 5 PM on Friday, April 11, to their committee chair’s email. These papers will be graded by the chairs and assigned a score, which will be shared with delegates via email after the conference.Position papers must follow CMS formatting with MLA citations, and plagiarism of any kind is strictly prohibited. Delegates are expected to write their papers independently, and committee chairs may conduct plagiarism checks during grading. If plagiarism is detected, the delegate’s sponsor and the USG of the respective Assembly will be notified, and the delegate will be immediately disqualified from receiving any individual committee awards
+<br><br>Rubric-upcoming 
+
+</p>
+
+<h3> Committee Behavior</h3>
+<p>
+    In order for every delegate to have a pleasant time, TUCMUN has a zero-tolerance policy for harassment or discrimination of any kind. Delegates can report incidents directly to their committee chairs or anonymously to their chiars. Anyone found responsible for such behavior may face consequences, including disqualification from awards or removal from the conference.
+
+</p>
+<h3>Preparatory Actions</h3>
+<p>
+    TUCMUN values a collaborative conference experience where all delegates are given equal opportunities to speak and participate. Thus, prewriting of committee resolutions or directives outside of committee sessions is strictly prohibited. Any delegates found guilty of prewriting may be subject to disqualification from awards. TUCMUN considers all uses of AI to be in the same vein as plagiarism and cheating. All submitted position papers will be checked for AI use by committee chairs when grading. If AI use it, the same disciplinary process for plagiarism will occur.   
+
+</p>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const letterContent = document.querySelector(".letter-content");
+    
+            // Set initial style for the animation
+            letterContent.style.opacity = "0";
+            letterContent.style.transform = "translateY(50px)";
+            letterContent.style.transition = "opacity 1s ease, transform 1s ease";
+    
+            // Create an Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        letterContent.style.opacity = "1";
+                        letterContent.style.transform = "translateY(0)";
+                    }
+                });
+            });
+    
+            // Observe the letter-content element
+            observer.observe(letterContent);
+        });
+    </script>
+<!--Footer Code-->
+<footer>
+    <div class="container">
+        <h2>TUCMUN</h2>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/tucmun?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="mailto:tucmunregistration@gmail.com" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+        </div>
+    </div>
+</footer>
+
+</script>
+</body>
+</html>
