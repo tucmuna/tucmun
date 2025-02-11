@@ -1,0 +1,457 @@
+<!--Generic CSS-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - TUCMUN I</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Elbasan&display=swap" rel="stylesheet">
+    <style>
+        /* Main Style Variables */
+        :root {
+            --primary-bg: #0f172a;
+            --secondary-bg: #1e3a8a;
+            --accent-color: #3b82f6;
+            --text-color: #f8fafc;
+            --light-bg: rgba(41, 54, 84, 0.8);
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Reset and Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html {
+            font-family: "Judson", serif;
+            background: linear-gradient(to bottom, #0a1832, #1e3a8a, #2563eb);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            flex: 1;
+        }
+
+        /* Header Styles (unchanged) */
+        header {
+            background-color: rgba(41, 54, 84, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50px;
+            width: fit-content;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .menu-item {
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(30,58,138,0.95);
+            min-width: 200px;
+            border-radius: 5px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .dropdown li {
+            padding: 10px 15px;
+            white-space: nowrap;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown li a {
+            color: #f1f5f9;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .dropdown li:hover {
+            background-color: #334155;
+        }
+        ul li:hover .dropdown {
+            display:block;
+        }
+
+        .hero {
+    height: 100vh;
+    padding-top: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-top: 80px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: rgba(41, 54, 84, 0.8); /* Background for the content box */
+    backdrop-filter: blur(5px); /* Softens the overlay */
+}
+
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--orange-text);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--orange-text);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Show Dropdown on Hover */
+        ul li:hover .dropdown {
+            display: block;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            margin-top: 100px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+                /* Footer Styles (unchanged) */
+                footer {
+            background-color: var(--primary-bg);
+            text-align: center;
+            padding: 2rem 0;
+            border-radius: 20px 20px 0 0;
+            margin-top: 3rem;
+            color: var(--text-color);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        .header-tucmun-color {
+            color: #3b82f6;
+            text-decoration: none;
+            padding-right: 60px;
+        }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .main-content, footer {
+    position: relative;
+    z-index: 10; /* Ensures they stay above the canvas */
+    header {
+        z-index: 11;
+    }
+}
+    </style>
+</head>
+<!--Header Code-->
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="home.html" class="header-tucmun-color">TUCMUN</a>
+                </div>
+                <ul>
+                    <li class="menu-item">
+                        <a href="about.html">About</a>
+                    </li>
+                    <!-- Conference Dropdown -->
+                    <li class="menu-item">
+                        <a href="conference.html">Conference</a>
+                        <ul class="dropdown">
+                            <li><a href="sec-gen.html">Letter from Sec-Gen</a></li>
+                            <li><a href="policies.html">Policies</a></li>
+                            <li><a href="schedule.html">Schedule</a></li>
+                            <li><a href="delegate-handbook.html">Delegate Handbook</a></li>
+                            <li><a href="sponsor-handbook.html">Sponsor Handbook</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Committees Dropdown -->
+                    <li class="menu-item">
+                        <a href="committees.html">Committees</a>
+                        <ul class="dropdown">
+                            <li><a href="ga.html">GA</a></li>
+                            <li><a href="sa.html">SA</a></li>
+                            <li><a href="crisis.html">Crisis Simulations</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Charity Dropdown -->
+                    <li class="menu-item">
+                        <a href="charity.html">Charity</a>
+                        <ul class="dropdown">
+                            <li><a href="charity-letter.html">Charity Letter</a></li>
+                            <li><a href="charity-info.html">Charity Info (FEEDMORE)</a></li>
+                            <li><a href="charity-speaker.html">Charity Speaker - Info & Pic</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Keynote Speaker -->
+                    <li class="menu-item">
+                        <a href="keynote.html">Keynote Speaker</a>
+                    </li>
+    
+                    <!-- Registration Dropdown -->
+                    <li class="menu-item">
+                        <a href="registration.html">Registration</a>
+                        <ul class="dropdown">
+                            <li><a href="registration-details.html">Details</a></li>
+                            <li><a href="individual.html">Individual</a></li>
+                            <li><a href="school.html">School</a></li>
+                            <li><a href="optional-training.html">Optional Training</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<!--Put the code here-->
+<!--Footer Code-->
+<footer>
+    <div class="container">
+        <h2>TUCMUN</h2>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/tucmun?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="mailto:tucmunregistration@gmail.com" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+        </div>
+    </div>
+</footer>
+<!-- Place this within your HTML file -->
+<canvas id="floating-dots"></canvas>
+
+<script>
+    const canvas = document.getElementById("floating-dots");
+    const ctx = canvas.getContext("2d");
+
+    // Set canvas dimensions
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Resize canvas on window resize
+    window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+
+    // Create dots array
+    const dots = Array.from({ length: 50 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.5, // Normal speed
+        vy: (Math.random() - 0.5) * 0.5,
+        radius: Math.random() * 3 + 2,
+    }));
+
+    let mouse = { x: null, y: null, radius: 100 }; // Adjust radius as needed for mouse effect
+
+    // Track mouse position
+    window.addEventListener("mousemove", (event) => {
+        mouse.x = event.x;
+        mouse.y = event.y;
+    });
+
+    window.addEventListener("mouseout", () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    function animateDots() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        dots.forEach(dot => {
+            // Calculate distance from mouse to dot
+            const dx = dot.x - mouse.x;
+            const dy = dot.y - mouse.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            // Check if the dot is within the mouse radius
+            if (mouse.x && mouse.y && distance < mouse.radius) {
+                // Increase speed and repel from mouse
+                dot.vx += dx / distance * 0.02; // Increase multiplier to increase speed
+                dot.vy += dy / distance * 0.02;
+            }
+
+            // Update dot position
+            dot.x += dot.vx;
+            dot.y += dot.vy;
+
+            // Wrap around edges
+            if (dot.x > canvas.width) dot.x = 0;
+            if (dot.x < 0) dot.x = canvas.width;
+            if (dot.y > canvas.height) dot.y = 0;
+            if (dot.y < 0) dot.y = canvas.height;
+
+            // Draw dot
+            ctx.beginPath();
+            ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(255, 165, 0, 0.8)";
+            ctx.fill();
+            ctx.closePath();
+        });
+                // Connect dots with lines when they are close to each other
+                for (let i = 0; i < dots.length; i++) {
+            for (let j = i + 1; j < dots.length; j++) {
+                const dx = dots[i].x - dots[j].x;
+                const dy = dots[i].y - dots[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < 100) { // Set a distance threshold for connection
+                    const opacity = 1 - distance / 100; // Decrease opacity with distance
+                    ctx.beginPath();
+                    ctx.moveTo(dots[i].x, dots[i].y);
+                    ctx.lineTo(dots[j].x, dots[j].y);
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                    ctx.closePath();
+                }
+            }
+        }
+
+        requestAnimationFrame(animateDots);
+    }
+
+    animateDots();
+</script>
+</body>
+</html>'
+
+
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 max-w-5xl py-12">
+        <header class="text-center mb-16">
+            <h1 class="text-5xl font-bold mb-4 text-gray-800">Press Lead Katy Bondy</h1>
+            <h2 class="text-2xl font-semibold text-indigo-600 mb-8">Keynote Speaker</h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-lg mb-4 text-gray-700">
+                    We are incredibly delighted and honored to welcome Kathryn Bondy to deliver the keynote address for CSMUN XXVI.
+                </p>
+                <p class="text-lg mb-8 text-gray-700">
+                    Her expertise and far-ranging experiences in politics and international affairs will undeniably provide delegates with
+                    insight and inspiration.
+                </p>
+                <p class="text-sm text-gray-500 italic">
+                    Learn more about Ms. Bondy's work and background below.
+                </p>
+            </div>
+        </header>
+
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+            <div class="aspect-[3/4] relative shadow-2xl rounded-lg overflow-hidden">
+                <img
+                    src="/placeholder.svg?height=800&width=600"
+                    alt="Professional headshot of Katy Bondy"
+                    class="object-cover w-full h-full"
+                />
+            </div>
+            
+            <div class="space-y-6 text-gray-700">
+                <p>
+                    Katy Bondy is the Press Team Lead for the Bureau of International Organizations. She joined the Department of State in 2007. Most recently, she was a Political Officer at the U.S. Mission to the EU where she focused on Ukraine and Russia.
+                </p>
+                
+                <p>
+                    In Washington, she served as the Senior UK/Ireland and Senior France desk officer, as well as on the Kosovo desk. She was also the Counselor's Special Assistant for Public Affairs and worked in the Department's Office of Press Relations.
+                </p>
+                
+                <p>
+                    Overseas, Katy worked at the U.S. Embassies in Manila, Philippines and Colombo, Sri Lanka, and served shorter stints at the U.S. Embassies in Dhaka, Bangladesh and Belgrade, Serbia. Before joining the Department of State, she worked at the Wilson Center in Washington, D.C. on the Balkans.
+                </p>
+                
+                <p>
+                    Katy received her BA from Colby College and her MA from The Fletcher School. In her spare time, she enjoys meandering walks, listening to podcasts, and trying new recipes in the kitchen with her husband, who works at the Cybersecurity and Infrastructure Security Agency (CISA).
+                </p>
+            </div>
+        </div>
+    </div>
