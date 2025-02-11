@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secretariat - TUCMUN I</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Elbasan&display=swap" rel="stylesheet">
+    <style>
+        /* Main Style Variables */
+        :root {
+            --primary-bg: #0f172a; /* Dark blue */
+            --secondary-bg: #1e3a8a; /* Medium blue */
+            --accent-color: #3b82f6; /* Bright blue */
+            --text-color: #f8fafc; /* White */
+            --light-bg: rgba(41, 54, 84, 0.8); /* Semi-transparent background */
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+        }
+
+        /* Reset and Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html {
+            font-family: "Judson", serif;
+            background: linear-gradient(to bottom, #0a1832, #1e3a8a, #2563eb);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            flex: 1;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(41, 54, 84, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2.5rem; /* Increased padding for a larger header */
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50px;
+            width: fit-content;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem; /* Increased font size for the logo */
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 2.5rem; /* Increased gap between menu items */
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem; /* Slightly larger font size for menu items */
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color); /* Hover color */
+        }
+
+        .menu-item {
+            position: relative;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(30,58,138,0.95);
+            min-width: 200px;
+            border-radius: 5px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .dropdown li {
+            padding: 10px 15px;
+            white-space: nowrap;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown li a {
+            color: #f1f5f9;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .dropdown li:hover {
+            background-color: #334155;
+        }
+
+        /* Show Dropdown on Hover */
+        ul li:hover .dropdown {
+            display: block;
+        }
+
+        /* Full-Screen Image */
+        .full-screen-image {
+    background-image: url("group\ 1.JPG"); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh; /* 100% of the viewport height */
+}
+
+        /* Main Content Styles */
+        .main-content {
+            margin-top: 150px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 10; /* Ensure content is above the fullscreen image */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .secretariat-intro {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .secretariat-intro h2 {
+            font-size: 2rem;
+            color: #f97316;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .secretariat-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .secretariat-intro p strong {
+            color: var(--accent-color);
+        }
+
+        /* Timer Styles */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        #timer {
+            display: flex;
+            gap: 20px;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .time-section {
+            min-width: 120px;
+        }
+
+        .time-section span {
+            display: block;
+            font-size: 2rem;
+            margin-top: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-bg);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: auto;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer h2 {
+            font-size: 6rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            font-size: 2.5rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        .header-tucmun-color {
+            color: #3b82f6;
+            text-decoration: none;
+            padding-right: 60px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Full-Screen Image -->
+    <div class="fullscreen-image"></div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="home.html" class="header-tucmun-color">TUCMUN</a>
+                </div>
+                <ul>
+                    <li class="menu-item">
+                        <a href="about.html">About</a>
+                        <ul class="dropdown">
+                            <li><a href="secretariat.html">Secretariat</a></li>
+                        </ul>
+                    </li>
+                    <!-- Conference Dropdown -->
+                    <li class="menu-item">
+                        <a href="sec-gen.html">Conference</a>
+                        <ul class="dropdown">
+                            <li><a href="sec-gen.html">Welcome Letter</a></li>
+                            <li><a href="policies.html">Policies</a></li>
+                            <li><a href="schedule.html">Schedule</a></li>
+                            <li><a href="delegate-handbook.html">Delegate Handbook</a></li>
+                            <li><a href="sponsor-handbook.html">Sponsor Handbook</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Committees Dropdown -->
+                    <li class="menu-item">
+                        <a href="ga.html">Committees</a>
+                        <ul class="dropdown">
+                            <li><a href="ga.html">GA</a></li>
+                            <li><a href="sa.html">SA</a></li>
+                            <li><a href="crisis.html">Crisis Simulations</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Charity Dropdown -->
+                    <li class="menu-item">
+                        <a href="charity-letter.html">Charity</a>
+                        <ul class="dropdown">
+                            <li><a href="charity-letter.html">Charity Letter</a></li>
+                            <li><a href="charity-info.html">Charity Info (FEEDMORE)</a></li>
+                            <li><a href="charity-speaker.html">Charity Speaker - Info & Pic</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Keynote Speaker -->
+                    <li class="menu-item">
+                        <a href="keynote.html">Keynote</a>
+                    </li>
+    
+                    <!-- Registration Dropdown -->
+                    <li class="menu-item">
+                        <a href="registration.html">Registration</a>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="full-screen-image"></div>
+    <div class="container main-content">
+        <div class="secretariat-intro">
+            <h2>About the Conference</h2>
+            <p>
+                The secretariat of TUCMUN I is proud to present the first iteration of JR Tucker High School’s Model United Nations Conference! 
+                During the 2023-2024 school year, our Secretary General <strong>Disha Garg</strong> started attending Model UN conferences across Virginia and was inspired to start one for her own school. 
+                All the pieces fell into place as time went on as Disha proposed it to our sponsor, <strong>Mr. Jones</strong>, and started to assemble a team to tackle this project. 
+                After countless applications and interviews, the dream team convened. Ever since, the TUCMUN I secretariat has put in our blood, sweat, and tears to bring this conference to life. 
+                From fundraisers to lots of meetings, we have put in countless hours over the last few months to make this dream come true and could not be more proud to see what our hard work has amounted to.
+            </p>
+            <p>
+                <br>The theme of TUCMUN I is <strong>“Roar the truth”</strong>. The secretariat chose this theme to inspire delegates present at this conference to build and discuss diplomatic arguments towards the truth and the root of the problem. Whether the issue is from the past, present, future, or a fictional world, it is always important to uncover the truth. We encourage delegates to connect this year’s theme to their resolutions to emphasize the importance of truth. TUCMUN wants delegates to understand the roots of the United Nation and diplomacy. It believes that it starts from the truth which is why each country has the passion to advocate for its rights, discuss controversial topics that provoke tension and make alliances for its betterment at the end. TUCMUN aspires delegations to get inspired and replace themselves into the real world to understand the magnitude of the committee they are in while they form  resolutions, discuss issues and advocate for the truth.
+
+            </p>
+        </div>
+
+        <!-- Timer Section -->
+        <div class="countdown-container">
+            <div id="timer">
+                <div class="time-section">
+                    <span id="days">00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="time-section">
+                    <span id="hours">00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="time-section">
+                    <span id="minutes">00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="time-section">
+                    <span id="seconds">00</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <h2>TUCMUN</h2>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/tucmun?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="mailto:tucmunregistration@gmail.com" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Timer Script
+        let targetDate = new Date("2025-04-11T16:59:59").getTime();
+    
+        function updateTimer() {
+            let now = new Date().getTime();
+            let distance = targetDate - now;
+    
+            // If the countdown is over, stop the timer
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                document.getElementById("timer").innerHTML = "Time's up!";
+                return;
+            }
+    
+            // Calculate days, hours, minutes, and seconds
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+            // Add leading zeros if necessary
+            document.getElementById("days").textContent = String(days).padStart(2, '0');
+            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+        }
+    
+        // Update the timer immediately and then every second
+        updateTimer();
+        let timerInterval = setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
