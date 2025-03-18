@@ -36,7 +36,7 @@
           body, html {
               padding-top: 0px;
               font-family: "Judson", serif;
-              background: linear-gradient(to bottom, #0a1832, #1e3a8a, #2563eb);
+              background: linear-gradient(to bottom, #0a1832, #1e3a8a, #6793f1);
               color: var(--text-color);
               line-height: 1.6;
               overflow-x: hidden;
@@ -221,20 +221,6 @@
           }
   
           /* Footer */
-          footer {
-              background-color: var(--primary-bg);
-              text-align: center;
-              padding: 3rem 0; /* Increased padding */
-              margin-top: auto;
-              border-radius: 20px 20px 0 0;
-              position: relative;
-              bottom: 0;
-              width: 100%;
-          }
-          footer h2 {
-              font-size: 8rem; /* Larger footer text */
-              margin-bottom: 1rem; /* Added margin */
-          }
   
           .social-icons {
               display: flex;
@@ -265,7 +251,7 @@
 
   </head>
 
-  <body class="bg-[#155E95] text-white overflow-x-hidden">
+  <body class="text-white bg-red-200">
 
     <header>
       <div class="container flex">
@@ -341,13 +327,13 @@
       <div
         class="relative bg-gray-900 bg-opacity-80 p-10 rounded-2xl backdrop-blur-md"
       >
-        <h1 class="text-8xl text-white font-bold mb-4">Welcome to <br> TUCMUN I</h1>
-        <p class="text-5xl text-orange-300">"Roar The Truth"</p>
+        <h1 class="text-6xl text-white font-bold mb-4">Welcome to <br> TUCMUN I</h1>
+        <p class="text-3xl text-orange-300">"Roar The Truth"</p>
       </div>
     </div>
 
-    <main class="container mx-auto text-center space-y-10 py-20">
-        <div class="grid md:grid-cols-3 gap-6">
+    <main class="w-full bg-[#6793f1] mx-auto text-center space-y-10 py-36 flex items-center justify-center flex-col">
+        <div class="grid md:grid-cols-3 gap-6 max-w-[60rem]">
           <div class="bg-blue-100 text-white p-6 rounded-lg flex flex-col items-center justify-center">
             <h2 class="text-3xl text-blue-900 font-semibold">April 18th (Friday) <br> April 19th (Saturday)</h2>
           </div>
@@ -361,28 +347,7 @@
             <p>2910 N Parham Rd, Henrico, VA 23294</p>
           </div>
         </div>
-      
-        <!-- Pricing Details Section -->
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-blue-200 p-6 rounded-lg flex flex-col items-center justify-center">
-            <h2 class="text-2xl font-semibold text-blue-900">Individual Delegate Fee</h2>
-            <p class="text-lg text-gray-700 mt-2">$25 per delegate</p>
-            <p class="text-gray-700">Regular: March 17 – April 13</p>
-            <p class="text-gray-700">Late: April 14 – April 17</p>
-          </div>
-          <div class="bg-red-200 p-6 rounded-lg flex flex-col items-center justify-center">
-            <h2 class="text-2xl font-semibold text-red-900">Refund Policy</h2>
-            <p class="text-lg text-gray-700 mt-2">March 17 – April 13: 50% refund</p>
-            <p class="text-lg text-gray-700">April 14 – April 17: No refund</p>
-          </div>
-        </div>
-
-              
-        <!-- Registration Details Section -->
-        <div class="bg-gray-100 p-8 rounded-lg shadow-md">
-            <h2 class="text-3xl font-semibold text-blue-900">Registration</h2>
-            <p class="text-lg text-gray-700 mt-2">Opens March 18th – Sign up early or later!</p>
-        </div>
+    
       
         <div class="flex justify-center w-full mt-6">
           <a
@@ -397,20 +362,18 @@
 
 
 
-    <footer class="bg-gray-900 text-center py-10">
-      <h2 class="text-7xl">TUCMUN</h2>
-      <div class="flex justify-center space-x-6 mt-4">
-        <a
-          href="https://www.instagram.com/tucmun"
-          class="text-white hover:text-blue-400 text-3xl"
-          >📷</a
-        >
-        <a
-          href="mailto:tucmunregistration@gmail.com"
-          class="text-white hover:text-blue-400 text-3xl"
-          >✉️</a
-        >
-      </div>
-    </footer>
+      <footer class="w-full py-10 bg-[#0a1832] gap-y-8 flex flex-col items-center justify-center">
+          <h2 class="text-7xl">
+            TUCMUN
+          </h2>
+          <div class="flex gap-x-4">
+            <a href="https://www.instagram.com/tucmun?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="mailto:tucmunregistration@gmail.com" aria-label="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </a>
+          </div>
+      </footer>
   </body>
 </html>
