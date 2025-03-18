@@ -26,7 +26,7 @@
         :root {
             --primary-bg: #0f172a;
             --secondary-bg: #1e3a8a;
-            --accent-color: #3b82f6;
+            --accent-color: #85b2fa;
             --text-color: #f8fafc;
             --light-bg: rgba(41, 54, 84, 0.8);
             --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -226,6 +226,10 @@
             border-radius: 10px;
             text-align: center;
             box-shadow: var(--box-shadow);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .timeline-item h3 {
@@ -362,15 +366,11 @@
             </nav>
         </div>
     </header>
-    <section class="container main-content">
+    <section class="container main-content max-w-[70rem]">
         <div class="registration-section">
             <h2>Registration Details</h2>
             <p>Join us for TUCMUN I! Below are the key dates and details for registration:</p>
             <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Registration Opens</h3>
-                    <p>February 16th</p>
-                </div>
                 <div class="timeline-item">
                     <h3>Regular <br>Registration</h3>
                     <p>March 17th - April 13th</p>
