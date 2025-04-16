@@ -204,7 +204,7 @@
             color: var(--orange-text);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             margin-bottom: 1rem;
-            font-style: italic;
+            font-style: normal;
         }
 
         .letter-content p {
@@ -293,7 +293,12 @@
         z-index: 11;
     }
 }
-
+<style>
+  /* Add this CSS rule at the end of the existing styles */
+  h1.text-6xl {
+      color: #f97316; /* Orange color from Tailwind's orange-500 */
+      font-style: normal; /* Ensure text is not italic */
+  }
     </style>
 </head>
 <!--Header Code-->
