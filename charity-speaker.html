@@ -7,6 +7,7 @@
     <title>Schedule - TUCMUN I</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" type="image/x-icon" href="tucmunlogo.png">
@@ -21,7 +22,6 @@
             font-family: "Newsreader", "serif";
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
     <style>
         /* Main Style Variables */
         :root {
@@ -100,6 +100,7 @@
         nav ul li a:hover {
             color: var(--accent-color);
         }
+        
         .dropdown {
             display: none;
             position: absolute;
@@ -292,7 +293,12 @@
         z-index: 11;
     }
 }
-
+<style>
+  /* Add this CSS rule at the end of the existing styles */
+  h1.text-6xl {
+      color: #f97316; /* Orange color from Tailwind's orange-500 */
+      font-style: normal; /* Ensure text is not italic */
+  }
     </style>
 </head>
 <!--Header Code-->
@@ -356,11 +362,10 @@
             </nav>
         </div>
     </header>
-    <main class="main-content container">
+    <main class="main-content mt-20">
         <div class="letter-content py-10 text-lg flex flex-col gap-y-8">
             <h1 class="text-6xl text-center" style="color: #f97316;">Charity Speaker</h1>
             <img src="charity speaker.png" alt="Charity speakers" class="mx-auto rounded-xl shadow-md">
-            <br>
             Aaron McClung joined Feed More as Chief Development Officer in February 2022. He is an experienced leader in philanthropy, finance, and strategy with over 20 years’ experience in charitable giving, private equity, and organizational development. Aaron loves a good question, and he’s spent much of his career studying the intersection of people, money, and ideas that benefit the common good. Aaron has been instrumental in expanding Feed More’s reach and impact in Central Virginia. He has led key initiatives that enhanced the organization’s fundraising and community partnerships, including a major collaboration with CoStar Group that provided over 500 Thanksgiving meal kits to families in need. Aaron also secured a $20,000 grant from Pocahontas Parkway to support the Meals on Wheels program, helping deliver nutritious meals to homebound seniors. His strategic leadership played a vital role in the groundbreaking of Feed More’s new state-of-the-art facility in Henrico County, set to triple productivity and significantly expand capacity to meet rising community needs. Through these efforts, Aaron has strengthened Feed More’s ability to combat food insecurity and serve vulnerable populations across the region.
             </div>
         </main>
