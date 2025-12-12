@@ -45,27 +45,34 @@
             flex-direction: column;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            flex: 1;
-        }
-
-        /* Header Styles (unchanged) */
-        header {
-            background-color: rgba(41, 54, 84, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 50px;
-            width: fit-content;
-            z-index: 1000;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-        }
+         .container {
+              max-width: 100%;
+              margin: 0 auto;
+              padding: 0 2rem;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              flex-grow: 1; /* Ensures the container takes up remaining space */
+          }
+  
+          /* Header Styles */
+          header {
+              background-color: rgba(41, 54, 84, 0.9);
+              backdrop-filter: blur(10px);
+              padding: 1rem 0;
+              position: fixed;
+              width: 100%; /* FULL WIDTH */
+              top: 0; /* Attach to the top edge */
+              left: 0; /* Attach to the left edge */
+              transform: translateX(0); /* Remove centering */
+              z-index: 1000;
+              border-radius: 0; /* Remove rounded corners */
+              box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+              transition: all 0.3s ease;
+              width: 100%; /* Ensure full width */
+          }
+        
 
         nav {
             display: flex;
@@ -303,6 +310,7 @@
             font-size: 1.5em;
             color: white;
             text-align: left;  /* Keep aligned left */
+        }
     </style>
 </head>
 <body>
@@ -361,7 +369,6 @@
                     <!-- Registration Dropdown -->
                     <li class="menu-item">
                         <a href="registration.html">Registration</a>
-                        </ul>
                     </li>
                 </ul>
             </nav>
@@ -372,7 +379,8 @@
 <section class="hero">
     <div class="logo-container">
         <img src="feedmore-logo.png" alt="FeedMore Logo">
-    </section>
+    </div>
+</section>
     <section class="container main-content">
         <div class="container">
             <h1>Partnering with FeedMore</h1>
@@ -445,8 +453,6 @@
 <div class="credits">
         <h2>Credits:<br>Himasri Dasari (Director of Graphics and Design)<br>Sri Nair (Director of Charitable Giving)</h2>
     </div>
-
-</body>
 
     <!-- Footer -->
     <footer class="w-full py-10 bg-[#0a1832] gap-y-8 flex flex-col items-center justify-center">
