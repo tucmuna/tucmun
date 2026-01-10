@@ -3,464 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity - TUCMUN I</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Charity - TUCMUN II</title>
     <link rel="icon" type="image/x-icon" href="tucmunlogo.png">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap"
-      rel="stylesheet"
-    />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-bg': '#1c3349',
+                        'secondary-bg': '#253d54',
+                        'accent': '#ff9800',
+                        'text-main': '#e0e6eb',
+                    },
+                },
+            },
+        };
+    </script>
 
     <style>
-        * {
-            font-family: "Newsreader", "serif";
-        }
-    </style>
-    <style>
-        /* Main Style Variables */
-        :root {
-            --primary-bg: #0f172a;
-            --secondary-bg: #1e3a8a;
-            --accent-color: #D97706;
-            --text-color: #f8fafc;
-            --light-bg: rgba(41, 54, 84, 0.8);
-            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        * { font-family: "Newsreader", serif; scroll-behavior: smooth; }
+        .tuff-heading { font-family: "Gideon Roman", serif; text-transform: uppercase; letter-spacing: 0.15em; }
+        
+        .glass-nav { 
+            background: rgba(28, 51, 73, 0.9); 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid rgba(255, 152, 0, 0.2); 
         }
 
-        /* Reset and Base Styles */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body, html {
-            font-family: "Judson", serif;
-            background: linear-gradient(to bottom, #0a1832, #1e3a8a, #2563eb);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            flex: 1;
-        }
-
-        /* Header Styles (unchanged) */
-        header {
-            background-color: rgba(41, 54, 84, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 50px;
-            width: fit-content;
-            z-index: 1000;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav ul li a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 1rem;
+        .nav-link { 
+            text-transform: uppercase; 
+            font-size: 1.15rem; 
+            font-weight: 500; 
+            letter-spacing: 0.1em; 
             transition: color 0.3s ease;
         }
+        .nav-link:hover { color: #ff9800; }
 
-        .menu-item {
-            position: relative;
+        .btn-tuff { 
+            background: #ff9800; 
+            color: #1c3349; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 0.1em; 
+            transition: all 0.4s ease; 
+        }
+        .btn-tuff:hover { 
+            background: white; 
+            transform: translateY(-2px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4); 
         }
 
-        nav ul li a:hover {
-            color: var(--accent-color);
-        }
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: rgba(30,58,138,0.95);
-            min-width: 200px;
-            border-radius: 5px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
-
-        .dropdown li {
-            padding: 10px 15px;
-            white-space: nowrap;
-            transition: background-color 0.2s ease;
-        }
-
-        .dropdown li a {
-            color: #f1f5f9;
-            font-size: 0.9rem;
-            text-decoration: none;
-        }
-
-        .dropdown li:hover {
-            background-color: #334155;
-        }
-        ul li:hover .dropdown {
-            display:block;
-        }
-
-        /* Hero Section with FeedMore Logo */
-        /* Hero Section with FeedMore Logo */
-.hero {
-    height: 60vh; /* Adjusted height for the hero section */
-    padding-top: 120px; /* Adjusted padding to accommodate the header */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    margin: 2rem auto;
-    max-width: 1200px;
-}
-
-.logo-container {
-    background-color: white; /* White box behind the logo */
-    padding: 20px; /* Padding around the logo */
-    border-radius: 10px; /* Rounded corners for the white box */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Shadow for the white box */
-    margin-bottom: 1.5rem; /* Space between the logo and the text */
-    z-index: 1; /* Ensure the logo is above the text background */
-}
-
-.hero-text {
-    background: rgba(41, 54, 84, 0.8); /* Semi-transparent background for text */
-    backdrop-filter: blur(5px); /* Soft blur effect for text background */
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-.hero img {
-    max-width: 300px; /* Adjust the size of the logo */
-    height: auto;
-}
-
-.hero-text h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--accent-color);
-}
-
-.hero-text p {
-    font-size: 1.25rem;
-    color: var(--text-color);
-}
-.hero img {
-    max-width: 1000px; /* Increase this value to make the logo bigger */
-    height: auto; /* Maintains the aspect ratio */
-}
-
-        /* Main Content Styles */
-        .main-content {
-            margin-top: 100px;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
-
-        /* Footer Styles (unchanged) */
-        footer {
-            background-color: var(--primary-bg);
-            text-align: center;
-            padding: 2rem 0;
-            
-            margin-top: 3rem;
-            color: var(--text-color);
-        }
-        footer h2 {
-            font-size: 6rem;
-        }
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .social-icons a {
-            color: var(--text-color);
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: var(--accent-color);
-        }
-
-        .header-tucmun-color {
-            color: #3b82f6;
-            text-decoration: none;
-            padding-right: 60px;
-        }
-
-        .charity-section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: var(--box-shadow);
-            background-color: var(--light-bg);
-        }
-
-        .charity-section h2 {
-            font-size: 2.25rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
-
-        .charity-section p, .charity-section ul {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-color);
-        }
-
-        .charity-section ul {
-            list-style: disc;
-            padding-left: 1.5rem;
-        }
-
-        .donate-button {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            margin-top: 1.5rem;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--text-color);
-            background-color: var(--accent-color);
-            border-radius: 8px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .donate-button:hover {
-            background-color: #2563eb;
-        }
-
-        .team-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .team-member {
-            background-color: var(--light-bg);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: var(--box-shadow);
-            text-align: left;
-        }
-
-        .team-member h3 {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .team-member p {
-            font-size: 1rem;
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        .credits {
-            padding: 0 150px 20px 150px; /* Padding: top 0, bottom 20px, left/right 40px */
-            font-size: 1.5em;
-            color: white;
-            text-align: left;  /* Keep aligned left */
+        .dropdown:hover .dropdown-menu { display: block; }
+         /* Scroll Reveal Effect CSS */
+      .scroll-reveal {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .scroll-reveal.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container flex">
-            <nav class="flex gap-x-12">
-                <div class="logo flex items-center gap-y-2 gap-x-4 w-max">
-                  <img src="tucmunlogo.png" alt="" class="h-10">
-                    <a href="/" class="text-orange-400">TUCMUN</a>
+<body class="bg-primary-bg text-text-main">
+
+    <nav class="glass-nav sticky top-0 z-50 py-6 px-6 md:px-12 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-x-4">
+            <img src="photos/tucmunlogo.png" alt="TUCMUN Logo" class="h-10 w-10 md:h-12 md:w-12"/>
+            <span class="tuff-heading text-xl md:text-2xl text-accent font-bold tracking-widest">TUCMUN II</span>
+        </a>
+        
+        <div class="hidden lg:flex space-x-8 items-center">
+            <a href="about.html" class="nav-link">About</a>
+            
+            <div class="relative dropdown">
+                <button class="nav-link flex items-center">Conference <span class="ml-1 text-[10px]">▼</span></button>
+                <div class="dropdown-menu absolute hidden bg-secondary-bg border border-accent/20 p-4 w-56 mt-0 shadow-2xl rounded-b-lg">
+                    <a href="welcome.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Welcome Letter</a>
+                    <a href="secretariat.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Secretariat</a>
+                    <a href="policies.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Policies</a>
+                    <a href="schedule.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Schedule</a>
+                    <a href="delegate-handbook.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Delegate Handbook</a>
+                    <a href="sponsor-handbook.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Sponsor Handbook</a>
                 </div>
-                <ul>
-                    <li class="menu-item">
-                        <a href="about.html">About</a>
-                    </li>
-                    <!-- Conference Dropdown -->
-                    <li class="menu-item">
-                        <a href="sec-gen.html">Conference</a>
-                        <ul class="dropdown">
-                            <li><a href="sec-gen.html">Welcome Letter</a></li>
-                            <li><a href="secretariat.html">Secretariat</a></li>
-                            <li><a href="policies.html">Policies</a></li>
-                            <li><a href="schedule.html">Schedule</a></li>
-                            <li><a href="https://drive.google.com/file/d/1jQFoIrA-krvBCKr4WIkR6HW7dWfaTVwz/view?usp=sharing">Delegate Handbook</a></li>
-                            <li><a href="https://drive.google.com/file/d/1pnwRRmSAcSjdqe5L8RpNZP4lw1Q2iJYr/view?usp=sharing">Sponsor Handbook</a></li>
-                        </ul>
-                    </li>
+            </div>
 
-    
-                    <!-- Committees Dropdown -->
-                    <li class="menu-item">
-                        <a href="ga.html">Committees</a>
-                        <ul class="dropdown">
-                            <li><a href="ga.html">General Assemblies</a></li>
-                            <li><a href="sa.html">Specialized Agencies</a></li>
-                            <li><a href="crisis.html">Crisis Simulations</a></li>
-                        </ul>
-                    </li>
-    
-                    <!-- Charity Dropdown -->
-                    <li class="menu-item">
-                      <a href="charity-letter.html">Charity</a>
-                      <ul class="dropdown">
-                          <li><a href="charity-letter.html">Charity Letter</a></li>
-                          <li><a href="charity-speaker.html">Charity Speaker</a></li>
-                          <li><a href="charity-info.html">About</a></li>
-                          
+            <div class="relative dropdown">
+                <button class="nav-link flex items-center">Committees <span class="ml-1 text-[10px]">▼</span></button>
+                <div class="dropdown-menu absolute hidden bg-secondary-bg border border-accent/20 p-4 w-56 mt-0 shadow-2xl rounded-b-lg">
+                    <a href="ga.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">General Assemblies</a>
+                    <a href="sa.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Specialized Agencies</a>
+                    <a href="crisis.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Crisis</a>
+                </div>
+            </div>
 
-                      </ul>
-                  </li>
-    
-                    <!-- Keynote Speaker -->
-                    <li class="menu-item">
-                        <a href="keynote.html">Keynote</a>
-                    </li>
-    
-                    <!-- Registration Dropdown -->
-                    <li class="menu-item">
-                        <a href="registration.html">Registration</a>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+            <div class="relative dropdown">
+                <button class="nav-link flex items-center">Charity <span class="ml-1 text-[10px]">▼</span></button>
+                <div class="dropdown-menu absolute hidden bg-secondary-bg border border-accent/20 p-4 w-56 mt-0 shadow-2xl rounded-b-lg">
+                    <a href="#" class="pointer-events-none opacity-50 py-2 nav-link hover:translate-x-1 transition-transform text-sm">
+                        Charity Letter
+                    </a>
+                    <a href="#" class="pointer-events-none opacity-50 block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Charity Speaker</a>
+                    <a href="charity-info.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">About</a>
+                </div>
+            </div>
+
+            <a href="#" class="pointer-events-none nav-link">Keynote</a>
         </div>
-    </header>
 
-    <!-- Hero Section with FeedMore Logo -->
-<section class="hero">
-    <div class="logo-container">
-        <img src="feedmore-logo.png" alt="FeedMore Logo">
-    </section>
-    <section class="container main-content">
-        <div class="container">
-            <h1>Partnering with FeedMore</h1>
-            <p>Join us in supporting FeedMore's mission to fight hunger in Central Virginia.</p>
+        <div class="flex items-center gap-4">
+            <a href="registration.html" class="btn-tuff px-5 py-2 rounded text-sm hidden sm:block">Register Now</a>
+            <button class="lg:hidden text-accent text-2xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">☰</button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden lg:hidden bg-secondary-bg border-b border-accent/20 p-6 space-y-4">
+        <a href="about.html" class="block nav-link">About</a>
+        <p class="text-accent text-xs uppercase tracking-widest font-bold mt-4">Conference</p>
+        <div class="pl-4 space-y-2">
+            <a href="welcome.html" class="block text-sm opacity-80">Welcome Letter</a>
+            <a href="secretariat.html" class="block text-sm opacity-80">Secretariat</a>
+            <a href="policies.html" class="block text-sm opacity-80">Policies</a>
+            <a href="schedule.html" class="block text-sm opacity-80">Schedule</a>
+        </div>
+        <p class="text-accent text-xs uppercase tracking-widest font-bold mt-4">Committees</p>
+        <div class="pl-4 space-y-2">
+            <a href="ga.html" class="block text-sm opacity-80">General Assemblies</a>
+            <a href="sa.html" class="block text-sm opacity-80">Specialized Agencies</a>
+            <a href="crisis.html" class="block text-sm opacity-80">Crisis</a>
+        </div>
+        <p class="text-accent text-xs uppercase tracking-widest font-bold mt-4">Charity</p>
+        <div class="pl-4 space-y-2">
+            <a href="charity-letter.html" class="block text-sm opacity-80">Charity Letter</a>
+            <a href="charity-speaker.html" class="block text-sm opacity-80">Charity Speaker</a>
+            <a href="charity-info.html" class="block text-sm opacity-80">About</a>
+        </div>
+        <a href="keynote.html" class="block nav-link pt-2">Keynote</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="py-16 px-6 text-center scroll-reveal">
+        <div class="max-w-4xl mx-auto">
+<!--            <img src="photos/habitat_logo.png" alt="Habitat for Humanity Logo" class="w-64 mx-auto mb-8 drop-shadow-2xl">-->
+            <h1 class="tuff-heading text-4xl md:text-5xl text-accent mb-4 font-extrabold">Our Charitable Partner</h1>
+            <div class="h-1 w-32 bg-accent mx-auto mb-6"></div>
+            <p class="text-xl text-text-main/90 italic">
+                TUCMUN is honored to support Habitat for Humanity as our charitable partner for the 2026 conference.
+            </p>
         </div>
     </section>
 
     <!-- Main Content -->
-    <section class="container main-content">
-        <div class="charity-section">
-            <h2>About FeedMore</h2>
-            <p>FeedMore is dedicated to providing hunger relief throughout Central Virginia. Since its humble beginnings in 1967 with the launch of Meals on Wheels serving just eight clients, FeedMore has grown into a comprehensive hunger relief organization. In 1980, the Central Virginia Food Bank was established by 60 local churches and charities to address growing hunger and poverty. In 2005, the two organizations merged to create a Community Kitchen and formalized as FeedMore in 2008. Today, FeedMore serves 34 cities and counties, delivering over 35 million pounds of nutritious food annually to neighbors in need. With over 100 employees and more than 200 volunteers, FeedMore is proud to be a member of Feeding America, Meals on Wheels America, and the Federation of Virginia Food Banks.</p>
-        </div>
+    <main class="container mx-auto px-6 py-20 max-w-6xl scroll-reveal">
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+            <!-- About Section -->
+            <div class="md:col-span-2 space-y-8">
+                <section>
+                    <h2 class="text-3xl font-bold text-white mb-6 border-l-4 border-accent pl-4">About Habitat for Humanity</h2>
+                    <div class="space-y-4 text-lg text-text-main/90 leading-relaxed">
+                        <p>
+                            Founded in 1976 in Americus, Georgia, Habitat for Humanity International is a tax-exempt organization that works in partnership with families and volunteers to construct simple, decent, and affordable homes. Its vision is a world where everyone has a safe place to live, and it achieves this by fostering strength, stability, and self-reliance through housing.
+                        </p>
+                        <p>
+                            Homeowners contribute "sweat equity" by helping build their own homes alongside volunteers, and they pay affordable mortgages, ensuring sustainability and dignity in the process. Over the years, Habitat has expanded to operate in all 50 U.S. states and more than 70 countries, impacting over 62 million people globally. Beyond building homes, the organization also runs programs such as ReStores (nonprofit home improvement stores and donation centers) and Cars for Homes, which allow communities to support Habitat's mission in diverse ways.
+                        </p>
+                    </div>
+                </section>
+            </div>
 
-        <div class="charity-section">
-            <h2>Our Mission</h2>
-            <p>FeedMore’s mission is to provide hunger relief to neighbors in need through a network of community partners and programs. By addressing food insecurity, FeedMore aims to improve the health and well-being of individuals and families across Central Virginia.</p>
-        </div>
-
-        <div class="charity-section">
-            <h2>Programs</h2>
-            <ul>
-                <li><strong>BackPack Program:</strong> Provides weekend meals to children who rely on school meals during the week.</li>
-                <li><strong>Mobile Pantry:</strong> Brings groceries directly to underserved neighborhoods, ensuring access to fresh and nutritious food.</li>
-                <li><strong>Meals on Wheels:</strong> Delivers nutritious meals to homebound seniors, helping them maintain their independence and health.</li>
-            </ul>
-        </div>
-
-        <div class="charity-section">
-            <h2>Support FeedMore</h2>
-            <p>Your donations can make a significant difference in the fight against hunger. Every dollar donated helps provide meals to those in need. Join us in our mission to end hunger in Central Virginia.</p>
-            <a href="https://feedmore.org/donate/" target="_blank" class="donate-button">Donate Now</a>
-        </div>
-
-        <div class="charity-section">
-            <h2>Our Team</h2>
-            <div class="team-section">
-                <div class="team-member">
-                    <h3>Doug Pick</h3>
-                    <p><strong>President & CEO</strong><br>Leads with experience from his previous roles at Capital One and IBM.</p>
-                </div>
-                <div class="team-member">
-                    <h3>Tammy Cummings</h3>
-                    <p><strong>Chief Administrative Officer</strong><br>Over 30 years of experience in HR and DEI, leading strategic change.</p>
-                </div>
-                <div class="team-member">
-                    <h3>Sarah Gravitt-Baese</h3>
-                    <p><strong>Chief Marketing Officer</strong><br>Brings 20+ years of expertise in brand strategy and marketing.</p>
-                </div>
-                <div class="team-member">
-                    <h3>Michael Kenny</h3>
-                    <p><strong>Chief Operations Officer</strong><br>Focused on optimizing Feed More’s supply chain and operational efficiency.</p>
-                </div>
-                <div class="team-member">
-                    <h3>Kim Kugelman</h3>
-                    <p><strong>Chief Financial Officer</strong><br>A CPA with 25+ years in finance, ensuring financial sustainability.</p>
-                </div>
-                <div class="team-member">
-                    <h3>Aaron McClung</h3>
-                    <p><strong>Chief Development Officer</strong><br>Leads philanthropic efforts with a strong background in charitable giving.</p>
-                </div>
-                <div class="team-member">
-                    <h3>David Waidelich</h3>
-                    <p><strong>Chief Collaboration and Programs Officer</strong><br>A seasoned leader passionate about community outreach and strategic partnerships.</p>
+            <!-- Logo Card -->
+            <div class="md:col-span-1">
+                <div class="bg-secondary-bg/50 backdrop-blur-sm border border-accent/20 rounded-2xl p-8 text-center sticky top-24">
+                    <img src="photos/habitat_logo.png" alt="Habitat for Humanity" class="w-full max-w-xs mx-auto mb-6">
+                    <h3 class="text-2xl font-bold text-accent mb-3">Building Hope</h3>
+                    <p class="text-text-main/80 mb-6">A world where everyone has a safe place to live</p>
+                    <a href="https://secure.habitat.org/site/Donation2?df_id=8134&mfc_pref=T&7753.donation=form1" 
+                       target="_blank"
+                       class="btn-tuff px-6 py-3 rounded-lg text-base shadow-xl inline-block w-full">
+                        Donate Now
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
-    
-<div class="credits">
-        <h2>Credits:<br>Himasri Dasari (Director of Graphics and Design)<br>Sri Nair (Director of Charitable Giving)</h2>
-    </div>
 
-</body>
+        <!-- How to Help Section -->
+        <section class="bg-secondary-bg/50 backdrop-blur-sm border border-accent/20 rounded-2xl p-8 md:p-12">
+            <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-accent pl-4">How to Help</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-accent/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-accent">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-accent mb-3">Donations</h3>
+                    <p class="text-text-main/80 mb-4">Delegates are encouraged to donate using the link above.</p>
+                </div>
 
-    <!-- Footer -->
-    <footer class="w-full py-10 bg-[#0a1832] gap-y-8 flex flex-col items-center justify-center">
-        <h2 class="text-7xl">
-          TUCMUN
-        </h2>
-        <div class="flex gap-x-4">
-          <a href="https://www.instagram.com/tucmun?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                  </a>
-                  <a href="mailto:tucmunregistration@gmail.com" aria-label="Email">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                  </a>
+                <div class="text-center">
+                    <div class="bg-accent/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-accent">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-accent mb-3">Charity Letter</h3>
+                    <p class="text-text-main/80 mb-4">Advisors can find a formal letter to assist in fundraising.</p>
+                    <a href="#" class="text-accent hover:underline font-semibold">View Letter →</a>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-accent/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-accent">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-accent mb-3">Charity Speaker</h3>
+                    <p class="text-text-main/80 mb-4">Learn about Habitat for Humanity's incredible impact.</p>
+                    <a href="#" class="text-accent hover:underline font-semibold">Learn More →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#0d1b2a] py-8 px-6 border-t border-accent/20 relative z-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+            
+            <div class="flex flex-col items-center lg:items-start order-2 lg:order-1">
+                <div class="bg-white/5 border border-white/10 p-6 rounded-xl w-full max-w-xs text-center backdrop-blur-sm hover:border-accent/50 transition-colors duration-300">
+                    <h3 class="tuff-heading text-sm text-accent mb-3 tracking-widest border-b border-white/10 pb-2">Contact Us</h3>
+                    <a href="mailto:bob@gmail.com" class="text-gray-300 hover:text-white transition-colors text-lg font-serif">
+                        tucmunexcomm@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center text-center order-1 lg:order-2">
+                <h2 class="tuff-heading text-5xl text-accent mb-8">TUCMUN</h2>
+                
+                <div class="flex justify-center gap-10 mb-10">
+                    <a href="https://instagram.com/tucmun" target="_blank" class="text-accent hover:text-white transition-all transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tucmunexcomm@gmail.com&su=Inquiry%20Regarding%20TUCMUN%20II%20Conference&body=Hello%20TUCMUN%20Team%2C" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       aria-label="Email Gmail" 
+                       class="text-accent hover:text-white transition-all transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <nav class="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-1 text-[11px] uppercase tracking-[0.2em] font-bold text-gray-500">
+                    <a href="about.html" class="hover:text-accent transition-colors">About</a>
+                    <a href="secretariat.html" class="hover:text-accent transition-colors">Secretariat</a>
+                    <a href="schedule.html" class="hover:text-accent transition-colors">Schedule</a>
+                    <a href="charity-info.html" class="hover:text-accent transition-colors">Charity</a>
+                    <a href="registration.html" class="hover:text-accent transition-colors">Registration</a>
+                </nav>
+            </div>
+
+            <div class="flex flex-col items-center lg:items-end order-3">
+                <div class="bg-white/5 border border-white/10 p-6 rounded-xl w-full max-w-xs text-center backdrop-blur-sm hover:border-accent/50 transition-colors duration-300">
+                    <h3 class="tuff-heading text-sm text-accent mb-3 tracking-widest border-b border-white/10 pb-2">Location</h3>
+                    <p class="text-gray-300 text-lg font-serif leading-relaxed">
+                        2910 N Parham Rd<br>
+                        Henrico, VA 23294
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-4 pt-8 border-t border-white/5">
+            <p class="text-[10px] uppercase tracking-[0.3em] opacity-30 text-gray-400">
+                &copy; 2026 J.R. Tucker High School Model United Nations
+            </p>
         </div>
     </footer>
+
+    
+    <script>
+      // --- Scroll Reveal JavaScript ---
+      document.addEventListener('DOMContentLoaded', function() {
+          const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add('visible');
+                      // Stop observing once visible to save resources
+                      observer.unobserve(entry.target);
+                  }
+              });
+          }, {
+              threshold: 0.1, // Trigger when 10% of the item is visible
+          });
+
+          // Apply observer to all sections marked with 'scroll-reveal'
+          document.querySelectorAll('.scroll-reveal').forEach(element => {
+              observer.observe(element);
+          });
+      });
+    </script>
 </body>
 </html>

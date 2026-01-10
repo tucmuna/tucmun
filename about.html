@@ -3,412 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secretariat - TUCMUN I</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>About - TUCMUN II</title>
     <link rel="icon" type="image/x-icon" href="tucmunlogo.png">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-bg': '#1c3349',
+                        'secondary-bg': '#253d54',
+                        'accent': '#ff9800',
+                        'text-main': '#e0e6eb',
+                    },
+                },
+            },
+        };
+    </script>
     <style>
-        * {
-            font-family: "Newsreader", "serif";
-        }
-    </style>
-    <style>
-        /* Main Style Variables */
-        :root {
-            --primary-bg: #0f172a; /* Dark blue */
-            --secondary-bg: #1e3a8a; /* Medium blue */
-            --accent-color: #3b82f6; /* Bright blue */
-            --text-color: #f8fafc; /* White */
-            --light-bg: rgba(41, 54, 84, 0.8); /* Semi-transparent background */
-            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+        * { font-family: "Newsreader", serif; scroll-behavior: smooth; }
+        .tuff-heading { font-family: "Gideon Roman", serif; text-transform: uppercase; letter-spacing: 0.15em; }
+        
+        .glass-nav { 
+            background: rgba(28, 51, 73, 0.9); 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid rgba(255, 152, 0, 0.2); 
         }
 
-        /* Reset and Base Styles */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body, html {
-            font-family: "Judson", serif;
-            background: linear-gradient(to bottom, #0a1832, #1e3a8a, #2563eb);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            flex: 1;
-        }
-
-        /* Header Styles */
-        header {
-            background-color: rgba(41, 54, 84, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 2.5rem; /* Increased padding for a larger header */
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 50px;
-            width: fit-content;
-            z-index: 1000;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 2rem; /* Increased font size for the logo */
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            gap: 2.5rem; /* Increased gap between menu items */
-        }
-
-        nav ul li a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 1.1rem; /* Slightly larger font size for menu items */
+        .nav-link { 
+            text-transform: uppercase; 
+            font-size: 1.15rem; 
+            font-weight: 500; 
+            letter-spacing: 0.1em; 
             transition: color 0.3s ease;
         }
+        .nav-link:hover { color: #ff9800; }
 
-        nav ul li a:hover {
-            color: var(--accent-color); /* Hover color */
+        .btn-tuff { 
+            background: #ff9800; 
+            color: #1c3349; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 0.1em; 
+            transition: all 0.4s ease; 
+        }
+        .btn-tuff:hover { 
+            background: white; 
+            transform: translateY(-2px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4); 
         }
 
-        .menu-item {
+        .dropdown:hover .dropdown-menu { display: block; }
+
+        /* Hero Banner Styles */
+        .hero-banner {
+            background-image: url('photos/secretariat_med.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 85vh;
             position: relative;
-        }
-
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: rgba(30,58,138,0.95);
-            min-width: 200px;
-            border-radius: 5px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
-
-        .dropdown li {
-            padding: 10px 15px;
-            white-space: nowrap;
-            transition: background-color 0.2s ease;
-        }
-
-        .dropdown li a {
-            color: #f1f5f9;
-            font-size: 0.9rem;
-            text-decoration: none;
-        }
-
-        .dropdown li:hover {
-            background-color: #334155;
-        }
-
-        /* Show Dropdown on Hover */
-        ul li:hover .dropdown {
-            display: block;
-        }
-
-        /* Full-Screen Image */
-        .full-screen-image {
-    background-image: url("group\ 1.JPG"); /* Replace with your image path */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: auto; /* 100% of the viewport height */
-}
-
-        /* Main Content Styles */
-        .main-content {
-            margin-top: 150px;
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-            z-index: 10; /* Ensure content is above the fullscreen image */
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
-
-        .secretariat-intro {
-            background-color: var(--light-bg);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--box-shadow);
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .secretariat-intro h2 {
-            font-size: 2rem;
-            color: #f97316;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .secretariat-intro p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-color);
-            text-align: center;
-        }
-
-        .secretariat-intro p strong {
-            color: var(--accent-color);
-        }
-
-        /* Timer Styles */
-        .countdown-container {
-            display: flex;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        #timer {
-            display: flex;
-            gap: 60px;
-            text-align: center;
-            font-size: 2rem;
-            font-weight: bold;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px 80px;
-            border-radius: 10px;
-            box-shadow: var(--box-shadow);
-        }
-
-        .time-section {
-            min-width: 120px;
-        }
-
-        .time-section span {
-            display: block;
-            font-size: 3rem;
-            margin-top: 10px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: var(--primary-bg);
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: auto;
-            
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        footer h2 {
-            font-size: 6rem;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-icons a {
-            font-size: 2.5rem;
-            width: 50px;
-            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .social-icons a:hover {
-            color: var(--accent-color);
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(28, 51, 73, 0.7));
         }
 
-        .header-tucmun-color {
-            color: #3b82f6;
-            text-decoration: none;
-            padding-right: 60px;
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
         }
+
+        .hero-glow {
+            text-shadow: 0 0 30px rgba(255, 152, 0, 0.4);
+        }
+         /* Scroll Reveal Effect CSS */
+      .scroll-reveal {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .scroll-reveal.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
     </style>
 </head>
-<body>
-    <!-- Full-Screen Image -->
-    <div class="fullscreen-image"></div>
+<body class="bg-primary-bg text-text-main">
 
-    <header>
-        <div class="container flex">
-            <nav class="flex gap-x-12">
-                <div class="logo flex items-center gap-y-2 gap-x-4 w-max">
-                  <img src="tucmunlogo.png" alt="" class="h-10">
-                    <a href="/" class="text-orange-400">TUCMUN</a>
+    <nav class="glass-nav sticky top-0 z-50 py-4 px-4 md:px-12 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-x-4">
+        <img
+            src="photos/tucmunlogo.png"
+            alt="TUCMUN Logo"
+            class="h-10 w-10 md:h-12 md:w-12"
+        />
+        <span class="tuff-heading text-xl md:text-2xl text-accent font-bold tracking-widest">
+            TUCMUN II
+        </span>
+
+        <div class="hidden lg:flex space-x-8 items-center">
+            <a href="about.html" class="nav-link">About</a>
+            
+            <div class="relative dropdown">
+                <button class="nav-link flex items-center">Conference <span class="ml-1 text-[10px]">▼</span></button>
+                <div class="dropdown-menu absolute hidden bg-secondary-bg border border-accent/20 p-4 w-56 mt-0 shadow-2xl rounded-b-lg">
+                    <a href="welcome.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Welcome Letter</a>
+                    <a href="secretariat.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Secretariat</a>
+                    <a href="policies.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Policies</a>
+                    <a href="schedule.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Schedule</a>
+                    <a href="#" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Delegate Handbook</a>
+                    <a href="#" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Sponsor Handbook</a>
                 </div>
-                <ul>
-                    <li class="menu-item">
-                        <a href="about.html">About</a>
-                    </li>
-                    <!-- Conference Dropdown -->
-                     <li class="menu-item">
-                        <a href="sec-gen.html">Conference</a>
-                        <ul class="dropdown">
-                            <li><a href="sec-gen.html">Welcome Letter</a></li>
-                            <li><a href="secretariat.html">Secretariat</a></li>
-                            <li><a href="policies.html">Policies</a></li>
-                            <li><a href="schedule.html">Schedule</a></li>
-                            <li><a href="https://drive.google.com/file/d/1jQFoIrA-krvBCKr4WIkR6HW7dWfaTVwz/view?usp=sharing">Delegate Handbook</a></li>
-                            <li><a href="https://drive.google.com/file/d/1pnwRRmSAcSjdqe5L8RpNZP4lw1Q2iJYr/view?usp=sharing">Sponsor Handbook</a></li>
-                        </ul>
-                    </li>
-    
-                    <!-- Committees Dropdown -->
-                    <li class="menu-item">
-                        <a href="ga.html">Committees</a>
-                        <ul class="dropdown">
-                            <li><a href="ga.html">General Assemblies</a></li>
-                            <li><a href="sa.html">Specialized Agencies</a></li>
-                            <li><a href="crisis.html">Crisis Simulations</a></li>
-                        </ul>
-                    </li>
-    
-                    <!-- Charity Dropdown -->
-                   <li class="menu-item">
-                      <a href="charity-letter.html">Charity</a>
-                      <ul class="dropdown">
-                          <li><a href="charity-letter.html">Charity Letter</a></li>
-                          <li><a href="charity-speaker.html">Charity Speaker</a></li>
-                          <li><a href="charity-info.html">About</a></li>
-                          
+            </div>
 
-                      </ul>
-                  </li>
-    
-                    <!-- Keynote Speaker -->
-                    <li class="menu-item">
-                        <a href="keynote.html">Keynote</a>
-                    </li>
-    
-                    <!-- Registration Dropdown -->
-                    <li class="menu-item">
-                        <a href="registration.html">Registration</a>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+            <div class="relative dropdown">
+                <button class="nav-link flex items-center">Committees <span class="ml-1 text-[10px]">▼</span></button>
+                <div class="dropdown-menu absolute hidden bg-secondary-bg border border-accent/20 p-4 w-56 mt-0 shadow-2xl rounded-b-lg">
+                    <a href="ga.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">General Assemblies</a>
+                    <a href="sa.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Specialized Agencies</a>
+                    <a href="crisis.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Crisis Simulations</a>
+                </div>
+            </div>
 
+            <div class="relative dropdown">
+                <button class="nav-link flex items-center">Charity <span class="ml-1 text-[10px]">▼</span></button>
+                <div class="dropdown-menu absolute hidden bg-secondary-bg border border-accent/20 p-4 w-56 mt-0 shadow-2xl rounded-b-lg">
+                    <a href="#" class="pointer-events-none opacity-50 py-2 nav-link hover:translate-x-1 transition-transform text-sm">
+                        Charity Letter
+                    </a>
+                    <a href="#" class="pointer-events-none opacity-50 block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Charity Speaker</a>
+                    <a href="charity-info.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">About</a>
+                </div>
+            </div>
 
-
-
-    <div class="full-screen-image"></div>
-    <div class="container main-content max-w-[64rem]">
-        <div class="secretariat-intro p-20">
-            <h1 class="text-6xl text-orange-500 text-center">About</h1>
-            <img src="Sectariat.JPG" alt="" class="rounded-lg shadow-xl my-10 mb-14">
-            <p>
-                The secretariat of TUCMUN I is proud to present the first iteration of JR Tucker High School’s Model United Nations Conference! 
-                During the 2023-2024 school year, our Secretary General <strong>Disha Garg</strong> started attending Model UN conferences across Virginia and was inspired to start one for her own school. 
-                All the pieces fell into place as time went on as Disha proposed it to our sponsor, <strong>Mr. Jones</strong>, and started to assemble a team to tackle this project. 
-                After countless applications and interviews, the dream team convened. Ever since, the TUCMUN I secretariat has put in our blood, sweat, and tears to bring this conference to life. 
-                From fundraisers to lots of meetings, we have put in countless hours over the last few months to make this dream come true and could not be more proud to see what our hard work has amounted to.
-            </p>
-            <p>
-                <br>The theme of TUCMUN I is <strong>“Roar the truth”</strong>. The secretariat chose this theme to inspire delegates present at this conference to build and discuss diplomatic arguments towards the truth and the root of the problem. Whether the issue is from the past, present, future, or a fictional world, it is always important to uncover the truth. We encourage delegates to connect this year’s theme to their resolutions to emphasize the importance of truth. TUCMUN wants delegates to understand the roots of the United Nation and diplomacy. It believes that it starts from the truth which is why each country has the passion to advocate for its rights, discuss controversial topics that provoke tension and make alliances for its betterment at the end. TUCMUN aspires delegations to get inspired and replace themselves into the real world to understand the magnitude of the committee they are in while they form  resolutions, discuss issues and advocate for the truth.
-
-            </p>
+            <a href="#" class="pointer-events-none nav-link">Keynote</a>
         </div>
 
-      <!-- Timer Section -->
-<div class="countdown-container">
-    <div id="timer" style="
-        background-color: #6090e0; /* lighter blue */
-        border-radius: 1rem;
-        padding: 2rem;
-        text-align: center;
-        color: white;
-        max-width: 800px;
-        margin: 0 auto;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    ">
-        <p style="font-size: 2.0rem; font-weight: 600; margin: 0 auto; line-height: 1.6;">
-            TUCMUN I is officially over!<br>
-            Thank you for making our first iteration of TUCMUN the best.<br>
-            We hope to see you again next year!
-        </p>
+        <div class="flex items-center gap-4">
+            <a href="registration.html" class="btn-tuff px-5 py-2 rounded text-sm hidden sm:block">Register Now</a>
+            <button class="lg:hidden text-accent text-2xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">☰</button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden lg:hidden bg-secondary-bg border-b border-accent/20 p-6 space-y-4">
+        <a href="about.html" class="block nav-link">About</a>
+        <p class="text-accent text-xs uppercase tracking-widest font-bold mt-4">Conference</p>
+        <div class="pl-4 space-y-2">
+            <a href="welcome.html" class="block text-sm opacity-80">Welcome Letter</a>
+            <a href="secretariat.html" class="block text-sm opacity-80">Secretariat</a>
+            <a href="policies.html" class="block text-sm opacity-80">Policies</a>
+            <a href="schedule.html" class="block text-sm opacity-80">Schedule</a>
+        </div>
+        <p class="text-accent text-xs uppercase tracking-widest font-bold mt-4">Committees</p>
+        <div class="pl-4 space-y-2">
+            <a href="ga.html" class="block text-sm opacity-80">General Assemblies</a>
+            <a href="sa.html" class="block text-sm opacity-80">Specialized Agencies</a>
+            <a href="crisis.html" class="block text-sm opacity-80">Crisis</a>
+        </div>
+        <p class="text-accent text-xs uppercase tracking-widest font-bold mt-4">Charity</p>
+        <div class="pl-4 space-y-2">
+            <a href="charity-letter.html" class="block text-sm opacity-80">Charity Letter</a>
+            <a href="charity-speaker.html" class="block text-sm opacity-80">Charity Speaker</a>
+            <a href="charity-info.html" class="block text-sm opacity-80">About</a>
+        </div>
+        <a href="keynote.html" class="block nav-link pt-2">Keynote</a>
     </div>
-</div>
 
-    <footer class="w-full py-10 bg-[#0a1832] gap-y-8 flex flex-col items-center justify-center">
-        <h2 class="text-7xl">
-          TUCMUN
-        </h2>
-        <div class="flex gap-x-4">
-          <a href="https://www.instagram.com/tucmun?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                  </a>
-                  <a href="mailto:tucmunregistration@gmail.com" aria-label="Email">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                  </a>
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="tuff-heading text-6xl md:text-8xl text-accent mb-6 hero-glow scroll-reveal font-extrabold">ABOUT</h1>
+            <div class="h-1 w-32 bg-accent mx-auto scroll-reveal"></div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <main class="container mx-auto px-6 py-20 max-w-5xl scroll-reveal">
+        <div class="space-y-16 text-lg leading-relaxed">
+            <section>
+                <h2 class="text-4xl font-bold text-white mb-6 border-l-4 border-accent pl-4">Our Conference</h2>
+                <p class="text-text-main/90">
+                    J.R. Tucker's Model United Nations conference (TUCMUN) is a premier simulation of the United Nations, 
+                    designed to engage high school students in the complexities of international diplomacy and global governance. 
+                    Our conference provides a platform for delegates to debate pressing international issues, develop 
+                    critical thinking skills, and collaborate on innovative solutions.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-4xl font-bold text-white mb-6 border-l-4 border-accent pl-4">Our Mission</h2>
+                <p class="text-text-main/90">
+                    At TUCMUN, our mission is to foster a deeper understanding of the United Nations and the 
+                    challenges facing our world today. We strive to empower the next generation of leaders by 
+                    providing an environment that encourages academic excellence, public speaking, and 
+                    the spirit of international cooperation.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-[#0d1b2a] py-8 px-6 border-t border-accent/20 relative z-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+            
+            <div class="flex flex-col items-center lg:items-start order-2 lg:order-1">
+                <div class="bg-white/5 border border-white/10 p-6 rounded-xl w-full max-w-xs text-center backdrop-blur-sm hover:border-accent/50 transition-colors duration-300">
+                    <h3 class="tuff-heading text-sm text-accent mb-3 tracking-widest border-b border-white/10 pb-2">Contact Us</h3>
+                    <a href="mailto:bob@gmail.com" class="text-gray-300 hover:text-white transition-colors text-lg font-serif">
+                        tucmunexcomm@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center text-center order-1 lg:order-2">
+                <h2 class="tuff-heading text-5xl text-accent mb-8">TUCMUN</h2>
+                
+                <div class="flex justify-center gap-10 mb-10">
+                    <a href="https://instagram.com/tucmun" target="_blank" class="text-accent hover:text-white transition-all transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tucmunexcomm@gmail.com&su=Inquiry%20Regarding%20TUCMUN%20II%20Conference&body=Hello%20TUCMUN%20Team%2C" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       aria-label="Email Gmail" 
+                       class="text-accent hover:text-white transition-all transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <nav class="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-1 text-[11px] uppercase tracking-[0.2em] font-bold text-gray-500">
+                    <a href="about.html" class="hover:text-accent transition-colors">About</a>
+                    <a href="secretariat.html" class="hover:text-accent transition-colors">Secretariat</a>
+                    <a href="schedule.html" class="hover:text-accent transition-colors">Schedule</a>
+                    <a href="charity-info.html" class="hover:text-accent transition-colors">Charity</a>
+                    <a href="registration.html" class="hover:text-accent transition-colors">Registration</a>
+                </nav>
+            </div>
+
+            <div class="flex flex-col items-center lg:items-end order-3">
+                <div class="bg-white/5 border border-white/10 p-6 rounded-xl w-full max-w-xs text-center backdrop-blur-sm hover:border-accent/50 transition-colors duration-300">
+                    <h3 class="tuff-heading text-sm text-accent mb-3 tracking-widest border-b border-white/10 pb-2">Location</h3>
+                    <p class="text-gray-300 text-lg font-serif leading-relaxed">
+                        2910 N Parham Rd<br>
+                        Henrico, VA 23294
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-4 pt-8 border-t border-white/5">
+            <p class="text-[10px] uppercase tracking-[0.3em] opacity-30 text-gray-400">
+                &copy; 2026 J.R. Tucker High School Model United Nations
+            </p>
         </div>
     </footer>
-
     <script>
-        // Timer Script
-        let targetDate = new Date("2025-04-18T17:59:59").getTime();
-    
-        function updateTimer() {
-            let now = new Date().getTime();
-            let distance = targetDate - now;
-    
-            // If the countdown is over, stop the timer
-            if (distance < 0) {
-                clearInterval(timerInterval);
-                document.getElementById("timer").innerHTML = "Time's up!";
-                return;
-            }
-    
-            // Calculate days, hours, minutes, and seconds
-            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-            // Add leading zeros if necessary
-            document.getElementById("days").textContent = String(days).padStart(2, '0');
-            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
-            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
-        }
-    
-        // Update the timer immediately and then every second
-        updateTimer();
-        let timerInterval = setInterval(updateTimer, 1000);
+      // --- Scroll Reveal JavaScript ---
+      document.addEventListener('DOMContentLoaded', function() {
+          const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add('visible');
+                      // Stop observing once visible to save resources
+                      observer.unobserve(entry.target);
+                  }
+              });
+          }, {
+              threshold: 0.1, // Trigger when 10% of the item is visible
+          });
+
+          // Apply observer to all sections marked with 'scroll-reveal'
+          document.querySelectorAll('.scroll-reveal').forEach(element => {
+              observer.observe(element);
+          });
+      });
     </script>
 </body>
 </html>
