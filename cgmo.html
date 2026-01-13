@@ -62,21 +62,25 @@
 </head>
 <body class="bg-primary-bg text-text-main">
 
-    <nav class="glass-nav sticky top-0 z-50 py-4 px-4 md:px-12 flex justify-between items-center">
-        <a href="index.html" class="flex items-center gap-x-4">
-        <img
-            src="photos/tucmunlogo.png"
-            alt="TUCMUN Logo"
-            class="h-10 w-10 md:h-12 md:w-12"
-        />
-        <span class="tuff-heading text-xl md:text-2xl text-accent font-bold tracking-widest">
-            TUCMUN II
-        </span>
-        <div class="hidden lg:flex space-x-8 items-center">
-            <a href="about.html" class="nav-link">About</a>
+    <nav class="glass-nav sticky top-0 z-50 py-4 px-4 flex justify-between items-center">
+        
+        <a href="index.html" class="flex items-center gap-x-2 lg:gap-x-4 shrink-0">
+            <img
+                src="photos/tucmunlogo.png"
+                alt="TUCMUN Logo"
+                class="h-10 w-10 md:h-12 md:w-12"
+            />
+            <span class="tuff-heading text-lg lg:text-xl xl:text-2xl text-accent font-bold tracking-widest whitespace-nowrap">
+                TUCMUN II
+            </span>
+        </a>
+
+        <div class="hidden lg:flex lg:space-x-4 xl:space-x-8 items-center shrink-0">
+            
+            <a href="about.html" class="nav-link lg:text-sm xl:text-base">About</a>
             
             <div class="relative dropdown">
-                <button class="nav-link flex items-center">Conference <span class="ml-1 text-[10px]">▼</span></button>
+                <button class="nav-link flex items-center lg:text-sm xl:text-base">Conference <span class="ml-1 text-[10px]">▼</span></button>
                 <div class="dropdown-menu absolute hidden bg-secondary-bg border border-accent/20 p-4 w-56 mt-0 shadow-2xl rounded-b-lg">
                     <a href="welcome.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Welcome Letter</a>
                     <a href="secretariat.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Secretariat</a>
@@ -88,7 +92,7 @@
             </div>
 
             <div class="relative dropdown">
-                <button class="nav-link flex items-center">Committees <span class="ml-1 text-[10px]">▼</span></button>
+                <button class="nav-link flex items-center lg:text-sm xl:text-base">Committees <span class="ml-1 text-[10px]">▼</span></button>
                 <div class="dropdown-menu absolute hidden bg-secondary-bg border border-accent/20 p-4 w-56 mt-0 shadow-2xl rounded-b-lg">
                     <a href="ga.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">General Assemblies</a>
                     <a href="sa.html" class="block py-2 nav-link hover:translate-x-1 transition-transform text-sm">Specialized Agencies</a>
@@ -97,7 +101,7 @@
             </div>
 
             <div class="relative dropdown">
-                <button class="nav-link flex items-center">Charity <span class="ml-1 text-[10px]">▼</span></button>
+                <button class="nav-link flex items-center lg:text-sm xl:text-base">Charity <span class="ml-1 text-[10px]">▼</span></button>
                 <div class="dropdown-menu absolute hidden bg-secondary-bg border border-accent/20 p-4 w-56 mt-0 shadow-2xl rounded-b-lg">
                     <a href="#" class="pointer-events-none opacity-50 py-2 nav-link hover:translate-x-1 transition-transform text-sm">
                         Charity Letter
@@ -107,11 +111,12 @@
                 </div>
             </div>
 
-            <a href="#" class="pointer-events-none nav-link">Keynote</a>
+            <a href="#" class="pointer-events-none nav-link lg:text-sm xl:text-base">Keynote</a>
         </div>
 
-        <div class="flex items-center gap-4">
-            <a href="registration.html" class="btn-tuff px-5 py-2 rounded text-sm hidden sm:block">Register Now</a>
+        <div class="flex items-center gap-2 lg:gap-4 shrink-0">
+            <a href="registration.html" class="btn-tuff px-3 lg:px-5 py-2 rounded text-xs lg:text-sm hidden sm:block whitespace-nowrap">Register Now</a>
+            
             <button class="lg:hidden text-accent text-2xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">☰</button>
         </div>
     </nav>
@@ -138,7 +143,11 @@
             <a href="charity-info.html" class="block text-sm opacity-80">About</a>
         </div>
         <a href="#" class="block nav-link pt-2">Keynote</a>
+        
+        <a href="registration.html" class="block sm:hidden btn-tuff text-center py-2 mt-4 rounded">Register Now</a>
     </div>
+
+</body>
 
     <main class="max-w-7xl mx-auto px-6 py-16">
         <!-- Committee Header -->
