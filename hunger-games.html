@@ -58,6 +58,16 @@
         }
 
         .dropdown:hover .dropdown-menu { display: block; }
+        /* Scroll Reveal Effect CSS */
+      .scroll-reveal {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .scroll-reveal.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
         
     </style>
 </head>
@@ -149,7 +159,7 @@
     </div>
 
 </body>
-    <main class="max-w-7xl mx-auto px-6 py-16">
+    <main class="max-w-7xl mx-auto px-6 py-16 scroll-reveal">
         <!-- Committee Header -->
         <div class="text-center mb-16">
             <div class="inline-block mb-8">
@@ -296,6 +306,26 @@ Hi, my name is Pranava Bharath and I am a Freshman at JR Tucker. I have been par
             </p>
         </div>
     </footer>
+<script>
+      // --- Scroll Reveal JavaScript ---
+      document.addEventListener('DOMContentLoaded', function() {
+          const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add('visible');
+                      // Stop observing once visible to save resources
+                      observer.unobserve(entry.target);
+                  }
+              });
+          }, {
+              threshold: 0.1, // Trigger when 10% of the item is visible
+          });
 
+          // Apply observer to all sections marked with 'scroll-reveal'
+          document.querySelectorAll('.scroll-reveal').forEach(element => {
+              observer.observe(element);
+          });
+      });
+    </script>
 </body>
 </html>

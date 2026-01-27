@@ -58,6 +58,16 @@
         }
 
         .dropdown:hover .dropdown-menu { display: block; }
+        /* Scroll Reveal Effect CSS */
+      .scroll-reveal {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .scroll-reveal.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
         
     </style>
 </head>
@@ -149,7 +159,7 @@
     </div>
 
 </body>
-    <main class="max-w-7xl mx-auto px-6 py-16">
+    <main class="max-w-7xl mx-auto px-6 py-16 scroll-reveal">
         <!-- Committee Header -->
         <div class="text-center mb-16">
             <div class="inline-block mb-8">
@@ -204,9 +214,9 @@ Hi, I'm Ishi and I'm a sophomore in the IB program here at Tucker. This is my 4t
                 <div class="bg-secondary-bg/50 backdrop-blur-sm border border-accent/20 rounded-2xl p-6 text-center hover:border-accent/50 transition-all mb-10">
                     <img src="photos/JCC_Gods_-_Pahel.jpg" alt="Pahel Jain" class="w-56 h-56 rounded-full object-cover shadow-xl border-4 border-accent/30 mx-auto mb-6">
                     <h3 class="text-2xl font-bold text-accent mb-4">Pahel Jain</h3>
-                    <p class="text-base leading-relaxed text-center"> Coming Soon! <!--make sure to align text left when putting bio back in-->
-<!--I am Pahel Jain and currently a freshman at J.R Tucker high school. I am continuing the IB program from middle school. I have was part of my my middle school's MUN conference for the last three years. I have been to round 5-7 conferences. I enjoy singing. I also play badminton in my free time. I look forward to collaborating and creating resolutions!          
-                    --></div>
+                    <p class="text-base leading-relaxed text-left"> 
+I am Pahel Jain, a freshman at J.R Tucker in the IB program. I have participated in Model UN for three years, having attended seven conferences. I enjoy singing, and play badminton in my free time. I look forward to delegates' creative solutions at TUCMUN II! 
+                    </div>
 
                 
             </div>
@@ -293,6 +303,26 @@ Hi, I'm Ishi and I'm a sophomore in the IB program here at Tucker. This is my 4t
             </p>
         </div>
     </footer>
+<script>
+      // --- Scroll Reveal JavaScript ---
+      document.addEventListener('DOMContentLoaded', function() {
+          const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add('visible');
+                      // Stop observing once visible to save resources
+                      observer.unobserve(entry.target);
+                  }
+              });
+          }, {
+              threshold: 0.1, // Trigger when 10% of the item is visible
+          });
 
+          // Apply observer to all sections marked with 'scroll-reveal'
+          document.querySelectorAll('.scroll-reveal').forEach(element => {
+              observer.observe(element);
+          });
+      });
+    </script>
 </body>
 </html>

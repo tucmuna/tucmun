@@ -58,6 +58,16 @@
         }
 
         .dropdown:hover .dropdown-menu { display: block; }
+        /* Scroll Reveal Effect CSS */
+      .scroll-reveal {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .scroll-reveal.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
         
     </style>
 </head>
@@ -149,7 +159,7 @@
     </div>
 
 </body>
-    <main class="max-w-7xl mx-auto px-6 py-16">
+    <main class="max-w-7xl mx-auto px-6 py-16 scroll-reveal">
         <!-- Committee Header -->
         <div class="text-center mb-16">
             <div class="inline-block mb-8">
@@ -208,7 +218,8 @@ Hi, Iâ€™m Prajna a 10th grader at Tucker. This is my second year chairing but Iâ
                     <img src="photos/DISEC_-_Ananya.jpg" alt="Ananya Karthik" class="w-56 h-56 rounded-full object-cover shadow-xl border-4 border-accent/30 mx-auto mb-6">
                     <h3 class="text-2xl font-bold text-accent mb-4">Ananya Karthik</h3>
                     <p class="text-base leading-relaxed text-left">
-Ananya Karthick is a sophomore currently in the International Baccalaureate program at Tucker and is thrilled to be your DISEC co-chair this year! This is her second year involved in TUCMUN, as she was a crisis staffer in last year's conference. In her free time, she teaches her native language at the American Tamil Academy, participates in many Carnatic singing events, and practices her violin. Ananya can't wait to see what delegates come up with in committee!                </div>
+Hi, I'm Ananya Karthick, a sophomore in the International Baccalaureate program at Tucker, and am thrilled to be your DISEC co-chair this year! This is my second year involved in TUCMUN, as I was a crisis staffer in last year's conference. In my free time, I teach my native language at the American Tamil Academy, participate in many Carnatic singing events, and practice my violin. I can't wait to see what delegates come up with in committee!
+         </div>
             </div>
 
             <!--<div class="text-center mt-8">
@@ -293,6 +304,26 @@ Ananya Karthick is a sophomore currently in the International Baccalaureate prog
             </p>
         </div>
     </footer>
+<script>
+      // --- Scroll Reveal JavaScript ---
+      document.addEventListener('DOMContentLoaded', function() {
+          const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add('visible');
+                      // Stop observing once visible to save resources
+                      observer.unobserve(entry.target);
+                  }
+              });
+          }, {
+              threshold: 0.1, // Trigger when 10% of the item is visible
+          });
 
+          // Apply observer to all sections marked with 'scroll-reveal'
+          document.querySelectorAll('.scroll-reveal').forEach(element => {
+              observer.observe(element);
+          });
+      });
+    </script>
 </body>
 </html>
