@@ -121,6 +121,89 @@
             height: 100%;
             object-fit: cover;
         }
+           /* Merch Popup */
+        .merch-popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 320px;
+            background: rgba(28, 51, 73, 0.95);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 152, 0, 0.3);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .merch-popup-toggle {
+            background: transparent;
+            border: none;
+            color: #ff9800;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .merch-popup-toggle:hover {
+            color: #fff;
+        }
+
+        .merch-popup.collapsed .merch-popup-toggle svg {
+            transform: rotate(180deg);
+        }
+
+        .merch-popup-content {
+            padding: 8px 20px 20px 20px;
+            max-height: 500px;
+            opacity: 1;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .merch-popup.collapsed .merch-popup-content {
+            max-height: 0;
+            opacity: 0;
+            padding: 0 20px;
+            overflow: hidden;
+        }
+
+        .merch-popup-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px 4px 20px;
+            cursor: pointer;
+        }
+
+        .merch-popup.collapsed .merch-popup-header {
+            padding: 12px 16px;
+        }
+
+        .merch-collapsed-label {
+            display: none;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .merch-popup.collapsed .merch-collapsed-label {
+            display: flex;
+        }
+
+        @media (max-width: 640px) {
+            .merch-popup {
+                width: calc(100% - 40px);
+                bottom: 10px;
+                right: 10px;
+            }
+            .merch-popup.collapsed {
+                width: auto;
+            }
+        }
     </style>
 </head>
 <!--<body class="bg-primary-bg text-text-main">
@@ -505,7 +588,46 @@
             </p>
         </div>
     </footer>
-
+ <!-- Merch Popup -->
+    <div id="merch-popup" class="merch-popup">
+        <div class="merch-popup-header" id="toggle-popup">
+            <div class="merch-collapsed-label">
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M14.5 2h-5L7 4.5 3 6v3l2 1v10h14V10l2-1V6l-4-1.5L14.5 2zM12 4c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2z"/>
+</svg>
+                <span class="text-text-main font-semibold text-sm uppercase tracking-wide">Preorder Merch</span>
+            </div>
+            <button class="merch-popup-toggle" aria-label="Toggle merch popup">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+        </div>
+        
+        <div class="merch-popup-content">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="bg-accent/20 p-3 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M14.5 2h-5L7 4.5 3 6v3l2 1v10h14V10l2-1V6l-4-1.5L14.5 2zM12 4c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2z"/>
+</svg>
+                </div>
+                <div>
+                    <h3 class="tuff-heading text-accent text-lg">TUCMUN Merch</h3>
+                    <p class="text-xs text-text-main/70">Limited Edition</p>
+                </div>
+            </div>
+            
+            <p class="text-text-main/90 mb-5 text-sm leading-relaxed">
+                Pre-order exclusive TUCMUN II merchandise! Get your conference gear before it's gone.
+            </p>
+            
+            <a href="https://forms.gle/S1ndsLC5DXUyB7JYA" 
+               target="Merch Pre-Order Form"
+               class="btn-tuff px-6 py-3 rounded-lg text-sm shadow-xl inline-block w-full text-center">
+                Pre-Order Now
+            </a>
+        </div>
+    </div>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
           const observer = new IntersectionObserver((entries) => {
@@ -555,6 +677,13 @@ const scrollContent = document.querySelector('.scroll-content');
 scrollContent.addEventListener('animationiteration', () => {
     scrollContent.style.transform = 'translateX(0)';
 });
+// Merch Popup toggle functionality
+      const merchPopup = document.getElementById('merch-popup');
+      const togglePopup = document.getElementById('toggle-popup');
+
+      togglePopup.addEventListener('click', () => {
+          merchPopup.classList.toggle('collapsed');
+      });
     </script>
 </body>
 </html>
